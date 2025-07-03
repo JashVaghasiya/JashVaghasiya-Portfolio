@@ -101,6 +101,7 @@ This is a modern full-stack portfolio website for Alex Chen, a Data Engineer. Th
 ```
 Changelog:
 - July 03, 2025. Initial setup
+- July 03, 2025. Added individual project detail pages with comprehensive project information
 ```
 
 ## User Preferences
