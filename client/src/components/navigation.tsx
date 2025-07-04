@@ -62,53 +62,109 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 relative overflow-hidden ${
       isScrolled 
-        ? "bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xl h-16" 
-        : "bg-gradient-to-r from-white/90 via-blue-50/90 to-white/90 backdrop-blur-md border-b border-slate-200/50 h-20"
+        ? "bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-2xl h-16" 
+        : "bg-gradient-to-r from-slate-900/95 via-blue-900/95 to-slate-900/95 backdrop-blur-xl border-b border-white/20 h-20"
     }`}>
+      {/* Animated background pattern */}
+      <div className={`absolute inset-0 opacity-10 ${isScrolled ? 'hidden' : 'block'}`}>
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            radial-gradient(circle at 20% 50%, rgba(255,255,255,0.2) 1px, transparent 1px),
+            radial-gradient(circle at 80% 50%, rgba(255,255,255,0.2) 1px, transparent 1px)
+          `,
+          backgroundSize: '30px 30px',
+          animation: 'float 4s ease-in-out infinite'
+        }}></div>
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex justify-between items-center transition-all duration-500 ${
           isScrolled ? "h-16" : "h-20"
         }`}>
-          <div className="flex-shrink-0 transform transition-all duration-300 hover:scale-105">
-            <h1 className={`font-bold text-slate-800 transition-all duration-500 ${
-              isScrolled ? "text-xl" : "text-2xl"
+          <motion.div 
+            className="flex-shrink-0 transform transition-all duration-300 hover:scale-105"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <h1 className={`font-bold transition-all duration-500 ${
+              isScrolled 
+                ? "text-xl text-slate-800 bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent" 
+                : "text-2xl text-white drop-shadow-lg"
             }`}>
               Jash Vaghasiya
             </h1>
-            <p className={`text-slate-600 transition-all duration-500 ${
-              isScrolled ? "text-xs" : "text-sm"
+            <p className={`transition-all duration-500 ${
+              isScrolled 
+                ? "text-xs text-slate-600" 
+                : "text-sm text-blue-200 drop-shadow-md"
             }`}>
               Data Engineer
             </p>
-          </div>
+          </motion.div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-1">
-              {navLinks.map((link) => (
-                <button
+              {navLinks.map((link, index) => (
+                <motion.button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg transform hover:scale-105 ${
+                  className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group ${
                     activeSection === link.id
-                      ? "text-blue-600 font-semibold bg-blue-50 shadow-sm"
-                      : "text-slate-700 hover:text-blue-600 hover:bg-blue-50/50"
+                      ? isScrolled 
+                        ? "text-blue-600 font-semibold bg-blue-50 shadow-lg" 
+                        : "text-white font-semibold bg-white/20 shadow-lg backdrop-blur-sm"
+                      : isScrolled
+                        ? "text-slate-700 hover:text-blue-600 hover:bg-blue-50/80"
+                        : "text-blue-100 hover:text-white hover:bg-white/20"
                   }`}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
                 >
                   {activeSection === link.id && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-100 to-blue-50 rounded-lg animate-pulse" />
+                    <motion.div 
+                      className={`absolute inset-0 rounded-lg ${
+                        isScrolled 
+                          ? "bg-gradient-to-r from-blue-100 to-emerald-100" 
+                          : "bg-gradient-to-r from-white/30 to-blue-300/30"
+                      }`}
+                      layoutId="activeTab"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
                   )}
                   <span className="relative z-10">{link.label}</span>
-                </button>
+                  <motion.div
+                    className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r ${
+                      isScrolled ? "from-blue-500 to-emerald-500" : "from-white to-blue-300"
+                    } rounded-full`}
+                    initial={{ width: 0 }}
+                    whileHover={{ width: "100%" }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.button>
               ))}
-              <Button
-                onClick={() => scrollToSection("contact")}
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
-              >
-                Contact
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button
+                  onClick={() => scrollToSection("contact")}
+                  className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 shadow-lg hover:shadow-2xl relative overflow-hidden ${
+                    isScrolled
+                      ? "bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white"
+                      : "bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm border border-white/30"
+                  }`}
+                >
+                  <span className="relative z-10">Contact</span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "100%" }}
+                    transition={{ duration: 0.6 }}
+                  />
+                </Button>
+              </motion.div>
             </div>
           </div>
           

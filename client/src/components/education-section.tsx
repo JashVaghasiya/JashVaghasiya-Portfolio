@@ -62,12 +62,24 @@ export default function EducationSection() {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                initial={{ opacity: 0, rotateY: -30, scale: 0.8 }}
+                whileInView={{ opacity: 1, rotateY: 0, scale: 1 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: index * 0.2,
+                  type: "spring",
+                  stiffness: 100
+                }}
                 viewport={{ once: true }}
+                whileHover={{ 
+                  y: -10,
+                  rotateY: 5,
+                  scale: 1.05,
+                  boxShadow: "0 25px 50px rgba(0,0,0,0.15)"
+                }}
+                className="perspective-1000"
               >
-                <Card className="bg-white hover:shadow-lg transition-shadow duration-300 h-full">
+                <Card className="bg-gradient-to-br from-white to-blue-50 hover:shadow-2xl transition-all duration-500 h-full border-2 border-transparent hover:border-blue-200 relative overflow-hidden group">
                   <CardContent className="p-8">
                     <div className="flex items-start mb-6">
                       <div className={`w-16 h-16 ${education.color} rounded-lg flex items-center justify-center mr-4 flex-shrink-0`}>

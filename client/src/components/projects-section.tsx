@@ -87,13 +87,28 @@ export default function ProjectsSection() {
                     </p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.technologies.map((tech, techIndex) => (
-                        <Badge 
+                        <motion.div
                           key={techIndex}
-                          className={`text-xs font-medium ${getColorClass(index)}`}
-                          variant="secondary"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ 
+                            delay: techIndex * 0.1,
+                            type: "spring",
+                            stiffness: 300
+                          }}
+                          whileHover={{ 
+                            scale: 1.1,
+                            rotate: 5,
+                            y: -2
+                          }}
                         >
-                          {tech}
-                        </Badge>
+                          <Badge 
+                            className={`text-xs font-medium ${getColorClass(index)} cursor-default`}
+                            variant="secondary"
+                          >
+                            {tech}
+                          </Badge>
+                        </motion.div>
                       ))}
                     </div>
                     <span className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">

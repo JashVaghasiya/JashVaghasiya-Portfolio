@@ -58,26 +58,71 @@ export default function ExperienceSection() {
               <div className="flex items-center md:justify-between">
                 {experience.side === "left" ? (
                   <>
-                    <div className="w-full md:w-1/2 md:pr-8 md:text-right">
-                      <Card className="bg-slate-50 hover:shadow-lg transition-shadow duration-300">
-                        <CardContent className="p-6">
-                          <h3 className="text-xl font-semibold text-slate-800 mb-2">
+                    <motion.div 
+                      className="w-full md:w-1/2 md:pr-8 md:text-right"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <Card className="bg-gradient-to-br from-white to-slate-50 hover:shadow-2xl transition-all duration-500 border-l-4 border-blue-500 relative overflow-hidden group">
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          initial={{ x: "-100%" }}
+                          whileHover={{ x: "100%" }}
+                          transition={{ duration: 1 }}
+                        />
+                        <CardContent className="p-6 relative z-10">
+                          <motion.h3 
+                            className="text-xl font-semibold text-slate-800 mb-2"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ delay: 0.2 }}
+                          >
                             {experience.title}
-                          </h3>
-                          <p className="text-blue-600 font-medium mb-2">
+                          </motion.h3>
+                          <motion.p 
+                            className="text-blue-600 font-medium mb-2"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ delay: 0.3 }}
+                          >
                             {experience.company}
-                          </p>
-                          <p className="text-slate-600 text-sm mb-3">
+                          </motion.p>
+                          <motion.p 
+                            className="text-slate-600 text-sm mb-3"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ delay: 0.4 }}
+                          >
                             {experience.period}
-                          </p>
-                          <p className="text-slate-700">
+                          </motion.p>
+                          <motion.p 
+                            className="text-slate-700"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ delay: 0.5 }}
+                          >
                             {experience.description}
-                          </p>
+                          </motion.p>
                         </CardContent>
                       </Card>
-                    </div>
+                    </motion.div>
                     
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg hidden md:block"></div>
+                    <motion.div 
+                      className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full border-4 border-white shadow-xl hidden md:block"
+                      initial={{ scale: 0, rotate: -180 }}
+                      whileInView={{ scale: 1, rotate: 0 }}
+                      transition={{ 
+                        type: "spring", 
+                        stiffness: 300, 
+                        damping: 20,
+                        delay: index * 0.1 
+                      }}
+                      whileHover={{ 
+                        scale: 1.5, 
+                        boxShadow: "0 0 20px rgba(59, 130, 246, 0.6)",
+                        transition: { duration: 0.2 }
+                      }}
+                    ></motion.div>
                     
                     <div className="w-full md:w-1/2 md:pl-8 hidden md:block"></div>
                   </>
@@ -85,7 +130,22 @@ export default function ExperienceSection() {
                   <>
                     <div className="w-full md:w-1/2 md:pr-8 hidden md:block"></div>
                     
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg hidden md:block"></div>
+                    <motion.div 
+                      className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full border-4 border-white shadow-xl hidden md:block"
+                      initial={{ scale: 0, rotate: 180 }}
+                      whileInView={{ scale: 1, rotate: 0 }}
+                      transition={{ 
+                        type: "spring", 
+                        stiffness: 300, 
+                        damping: 20,
+                        delay: index * 0.1 
+                      }}
+                      whileHover={{ 
+                        scale: 1.5, 
+                        boxShadow: "0 0 20px rgba(16, 185, 129, 0.6)",
+                        transition: { duration: 0.2 }
+                      }}
+                    ></motion.div>
                     
                     <div className="w-full md:w-1/2 md:pl-8">
                       <Card className="bg-slate-50 hover:shadow-lg transition-shadow duration-300">
