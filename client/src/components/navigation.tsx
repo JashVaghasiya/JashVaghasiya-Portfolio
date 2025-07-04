@@ -62,7 +62,7 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 relative overflow-hidden ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 overflow-hidden ${
       isScrolled 
         ? "bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-2xl h-16" 
         : "bg-gradient-to-r from-slate-900/95 via-blue-900/95 to-slate-900/95 backdrop-blur-xl border-b border-white/20 h-20"
