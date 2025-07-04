@@ -113,6 +113,7 @@ Changelog:
 - July 04, 2025. Updated education section with actual Lambton College and university details
 - July 04, 2025. Centered continuous learning sections and updated copyright to Jash Vaghasiya
 - July 04, 2025. Improved contact form reliability with better error handling and fallback options
+- July 04, 2025. Completely redesigned skills section: removed Data Engineering category, implemented clean single-column layout with gray pill styling
 ```
 
 ## User Preferences
