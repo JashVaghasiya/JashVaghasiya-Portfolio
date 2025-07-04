@@ -35,9 +35,9 @@ const projectsData = {
       "Cross-Platform Integration: Successfully bridged GCP and Azure ecosystems with robust, scalable data processing capabilities"
     ],
     architecture: {
-      description: "Multi-Layer Data Flow: Implements landing → raw → intermediate → curated data layers for systematic processing with Cross-Platform Integration and Automated Pipeline Orchestration.",
+      description: "Implements a comprehensive four-layer data architecture with cross-platform integration and automated pipeline orchestration for systematic processing between GCP and Azure.",
       components: [
-        "Multi-Layer Data Flow: landing → raw → intermediate → curated data layers",
+        "Multi-Layer Data Flow: landing → raw → intermediate → curated data layers for systematic processing",
         "Cross-Platform Integration: Seamless connectivity between GCP and Azure using SHIR and secure credential management", 
         "Automated Pipeline Orchestration: End-to-end automation with parameterized pipelines for dynamic source and table management",
         "Security & Governance Framework: RBAC integration with Unity Catalog and AAD for comprehensive access control"
@@ -78,55 +78,55 @@ const projectsData = {
     goal: "Build an enterprise-grade, automated data pipeline solution that seamlessly migrates and governs large-scale datasets between Google Cloud Platform and Microsoft Azure with zero data loss and comprehensive security controls."
   },
   "real-time-analytics-pipeline": {
-    title: "Real-time Analytics Pipeline",
-    subtitle: "Scalable streaming data processing with sub-second latency",
-    description: "Built a comprehensive real-time data pipeline using Apache Kafka, Spark Streaming, and Redis to process e-commerce streaming data. The system handles over 100,000 events per second with sub-second latency, enabling real-time recommendations and fraud detection.",
-    technologies: ["Apache Kafka", "Spark Streaming", "Redis", "Python", "Scala", "Docker"],
-    duration: "6 months",
-    team: "4 engineers",
-    impact: "80% reduction in data latency, 25% increase in real-time recommendations accuracy",
+    title: "Cloud-Native Data Platform with Real-Time Streaming and Automated Deployments",
+    subtitle: "Enterprise-scale cloud-native data platform leveraging Infrastructure-as-Code, real-time streaming, and automated CI/CD deployments",
+    description: "This project demonstrates the implementation of a comprehensive cloud-native data platform that provisions and manages Azure cloud resources using Infrastructure-as-Code principles. The solution encompasses end-to-end data engineering workflows including ETL pipelines, real-time data streaming, and fully automated CI/CD deployments. The platform integrates multiple Azure services to create a scalable, reliable, and observable data ecosystem capable of handling both batch and streaming data processing.",
+    technologies: ["Terraform", "Bicep", "Azure DevOps", "Azure Data Factory", "Databricks", "ADLS Gen2", "Key Vault", "Logic Apps", "PySpark", "Delta Live Tables", "Confluent Kafka", "MySQL"],
+    duration: "4 months",
+    team: "3 engineers + 1 cloud architect",
+    impact: "Complete infrastructure automation, real-time data processing capabilities, comprehensive CI/CD automation",
     highlights: [
-      "Designed fault-tolerant streaming architecture with automatic failover",
-      "Implemented real-time fraud detection saving $2M annually",
-      "Built monitoring dashboard with custom metrics and alerting",
-      "Optimized Kafka partitioning strategy for 10x throughput improvement"
+      "Full Infrastructure Automation: Achieved complete Azure resource provisioning and management using Terraform/Bicep IaC principles",
+      "Real-Time Data Processing: Implemented low-latency streaming solutions with Confluent Kafka integration for immediate data insights",
+      "Comprehensive CI/CD: Established automated deployment pipelines for both ADF and Databricks workflows with DevOps integration",
+      "Proactive Monitoring: Designed observability solutions using Logic Apps for data lineage tracking and pipeline stability monitoring"
     ],
     challenges: [
-      "Managing exactly-once processing semantics across distributed systems",
-      "Handling data schema evolution without service interruption",
-      "Optimizing memory usage for high-throughput streaming applications"
+      "Complex Infrastructure Orchestration: Managing interdependent Azure resources through Terraform while ensuring proper networking, security, and access controls",
+      "Real-Time Data Integration: Seamlessly integrating Confluent Kafka with Azure services to achieve low-latency data streaming and processing",
+      "CI/CD Pipeline Complexity: Implementing automated deployments for both ADF pipelines and Databricks notebooks while maintaining data lineage and pipeline stability"
     ],
     results: [
-      "Processing 100K+ events/second with <100ms latency",
-      "99.9% uptime with automatic disaster recovery",
-      "Reduced infrastructure costs by 30% through optimization"
+      "Deployment Efficiency: Reduced infrastructure provisioning time through automated IaC implementation with Terraform",
+      "Data Processing Performance: Enabled real-time data ingestion and processing capabilities with Confluent Kafka integration",
+      "Operational Excellence: Achieved seamless CI/CD automation for data pipelines with Azure DevOps integration",
+      "System Reliability: Established proactive monitoring and observability framework ensuring high availability and scalability"
     ],
     architecture: {
-      description: "The pipeline follows a lambda architecture pattern with separate batch and streaming layers.",
+      description: "Infrastructure-as-Code foundation with multi-layer data processing, real-time streaming integration, and automated deployment pipeline for comprehensive cloud-native data operations.",
       components: [
-        "Kafka clusters for event ingestion",
-        "Spark Streaming for real-time processing",
-        "Redis for low-latency caching",
-        "Elasticsearch for analytics storage",
-        "Grafana for monitoring and alerting"
+        "Infrastructure-as-Code Foundation: Complete Azure resource provisioning using Terraform for VNet, Subnets, Databricks, Data Factory, and storage components",
+        "Multi-Layer Data Processing: Integrated ETL pipelines with Delta Live Tables for efficient data transformation and storage in Parquet format",
+        "Real-Time Streaming Integration: Confluent Kafka implementation with Azure services for low-latency data ingestion and processing",
+        "Automated Deployment Pipeline: End-to-end CI/CD automation using Azure DevOps for both ADF pipelines and Databricks workflows"
       ]
     },
-    goal: "Build a real-time analytics pipeline capable of processing 100K+ events per second with sub-second latency for e-commerce streaming data.",
+    goal: "Build a fully automated, cloud-native data platform on Azure that combines Infrastructure-as-Code provisioning, real-time streaming capabilities, and CI/CD automation to deliver scalable, reliable, and high-performance data engineering solutions.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600",
-        caption: "Real-time Pipeline Architecture Diagram",
+        url: "/api/assets/model_1751665733082.png",
+        caption: "Stream Processing Architecture with Kafka: Near Real-Time - Complete data flow from source to reporting",
         type: "architecture"
       },
       {
-        url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600",
-        caption: "Kafka Streaming Dashboard",
-        type: "dashboard"
+        url: "/api/assets/Screenshot%202025-03-04%20121042_1751665733082.png",
+        caption: "Azure Data Factory Pipeline Implementation with MySQL and Databricks Integration",
+        type: "pipeline"
       },
       {
-        url: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600",
-        caption: "Performance Monitoring Metrics",
-        type: "metrics"
+        url: "/api/assets/Screenshot%202025-03-04%20121250_1751665733083.png",
+        caption: "Kafka-DLT Pipeline Workflow in Databricks showing automated data processing",
+        type: "processing"
       }
     ]
   },
