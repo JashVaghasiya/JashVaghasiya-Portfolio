@@ -178,7 +178,7 @@ export default function HeroSection() {
               <SiLinkedin />
             </a>
             <a
-              href="https://github.com/JashVaghasiya"
+              href="https://github.com/JashVaghasiya-DE"
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-300 hover:text-white text-2xl transition-colors duration-200"

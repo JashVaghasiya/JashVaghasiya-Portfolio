@@ -8,6 +8,16 @@ import { Link } from "wouter";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState } from "react";
 
+// GitHub links for each project
+const getGitHubLink = (projectId: string): string | undefined => {
+  const githubLinks: Record<string, string> = {
+    "gcp-azure-migration": "https://github.com/JashVaghasiya-DE/GCP-2-AZURE",
+    "real-time-analytics-pipeline": "https://github.com/JashVaghasiya-DE/kafka-financial",
+    "customer-analytics-dashboard": "" // Not Available
+  };
+  return githubLinks[projectId] || undefined;
+};
+
 const projectsData = {
   "gcp-azure-migration": {
     title: "GCP to Azure Migration & Governance Platform",
@@ -626,14 +636,17 @@ export default function ProjectDetail() {
           className="text-center"
         >
           <div className="flex flex-wrap justify-center gap-4">
-            <Button className="bg-blue-600 hover:bg-blue-700">
-              <Github className="mr-2 h-4 w-4" />
-              View Code
-            </Button>
-            <Button variant="outline">
-              <ExternalLink className="mr-2 h-4 w-4" />
-              Live Demo
-            </Button>
+            {(() => {
+              const githubLink = getGitHubLink(projectId);
+              return githubLink ? (
+                <a href={githubLink} target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-blue-600 hover:bg-blue-700">
+                    <Github className="mr-2 h-4 w-4" />
+                    View Code
+                  </Button>
+                </a>
+              ) : null;
+            })()}
             <Link href="/#contact">
               <Button variant="outline">
                 Discuss This Project

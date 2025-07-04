@@ -93,7 +93,7 @@ export default function ContactSection() {
     },
     {
       icon: SiGithub,
-      href: "https://github.com/JashVaghasiya",
+      href: "https://github.com/JashVaghasiya-DE",
       color: "hover:bg-slate-900"
     }
   ];

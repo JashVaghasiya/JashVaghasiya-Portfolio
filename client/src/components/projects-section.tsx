@@ -14,14 +14,14 @@ export default function ProjectsSection() {
       technologies: ["Azure", "GCP", "PySpark", "SQL", "Databricks"]
     },
     {
-      id: "real-time-streaming-deployments",
+      id: "real-time-analytics-pipeline",
       title: "Real-Time Streaming and Automated Deployments",
       description: "Enterprise-scale cloud-native data platform leveraging Infrastructure-as-Code, real-time streaming, and automated CI/CD deployments to deliver scalable, reliable, and high-performance data engineering solutions on Microsoft Azure.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
       technologies: ["Azure", "Kafka", "PySpark", "Databricks", "DLT"]
     },
     {
-      id: "data-warehousing-analytics",
+      id: "customer-analytics-dashboard",
       title: "Data Warehousing And Analytics Platform",
       description: "Comprehensive end-to-end data analytics platform processing 15+ years of LAPD crime and arrest data using Azure cloud services, implementing medallion architecture and FBI NIBRS compliance standards to deliver actionable public safety insights through advanced data warehousing and visualization capabilities.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
