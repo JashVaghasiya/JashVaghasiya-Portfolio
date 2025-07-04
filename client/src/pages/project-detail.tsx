@@ -55,27 +55,27 @@ const projectsData = {
     },
     images: [
       {
-        url: "/api/assets/architecture_1751664339599.jpg",
+        url: "/attached_assets/architecture_1751664339599.jpg",
         caption: "Complete ETL Architecture - GCP to Azure Migration with Delta Lake layers",
         type: "architecture"
       },
       {
-        url: "/api/assets/for_each_loop_1751664339602.png", 
+        url: "/attached_assets/for_each_loop_1751664339602.png", 
         caption: "Azure Data Factory ForEach Loop Implementation for dynamic pipeline processing",
         type: "pipeline"
       },
       {
-        url: "/api/assets/intermediate_to_curated_1751664339604.png",
+        url: "/attached_assets/intermediate_to_curated_1751664339604.png",
         caption: "Intermediate to Curated Layer Data Processing with metadata lookup",
         type: "processing"
       },
       {
-        url: "/api/assets/landing_to_raw_1751664339606.png",
+        url: "/attached_assets/landing_to_raw_1751664339606.png",
         caption: "Landing to Raw Layer Processing with success/failure handling",
         type: "processing"
       },
       {
-        url: "/api/assets/raw_to_intermediate_1751664339607.png",
+        url: "/attached_assets/raw_to_intermediate_1751664339607.png",
         caption: "Raw to Intermediate Layer Processing Pipeline",
         type: "processing"
       },
@@ -124,17 +124,17 @@ const projectsData = {
     goal: "Build a fully automated, cloud-native data platform on Azure that combines Infrastructure-as-Code provisioning, real-time streaming capabilities, and CI/CD automation to deliver scalable, reliable, and high-performance data engineering solutions.",
     images: [
       {
-        url: "/api/assets/model_1751665733082.png",
+        url: "/attached_assets/model_1751665733082.png",
         caption: "Stream Processing Architecture with Kafka: Near Real-Time - Complete data flow from source to reporting",
         type: "architecture"
       },
       {
-        url: "/api/assets/Screenshot%202025-03-04%20121042_1751665733082.png",
+        url: "/attached_assets/Screenshot 2025-03-04 121042_1751665733082.png",
         caption: "Azure Data Factory Pipeline Implementation with MySQL and Databricks Integration",
         type: "pipeline"
       },
       {
-        url: "/api/assets/Screenshot%202025-03-04%20121250_1751665733083.png",
+        url: "/attached_assets/Screenshot 2025-03-04 121250_1751665733083.png",
         caption: "Kafka-DLT Pipeline Workflow in Databricks showing automated data processing",
         type: "processing"
       }
@@ -177,17 +177,17 @@ const projectsData = {
     goal: "Build a comprehensive, compliant, and scalable data analytics platform that transforms 15+ years of LAPD crime data into actionable insights through automated pipelines, structured data warehousing, and advanced visualization capabilities.",
     images: [
       {
-        url: "/api/assets/Screenshot%202025-07-04%20175335_1751666108378.png",
+        url: "/attached_assets/Screenshot 2025-07-04 175335_1751666108378.png",
         caption: "Arrest Data Star Schema (2010-Present) - Comprehensive dimensional model with fact and dimension tables",
         type: "schema"
       },
       {
-        url: "/api/assets/Screenshot%202025-07-04%20175414_1751666108379.png",
+        url: "/attached_assets/Screenshot 2025-07-04 175414_1751666108379.png",
         caption: "Crime Data Star Schema (2010-Present) - Complete data warehouse design for law enforcement analytics",
         type: "schema"
       },
       {
-        url: "/api/assets/Screenshot%202025-07-04%20175546_1751666154164.png",
+        url: "/attached_assets/Screenshot 2025-07-04 175546_1751666154164.png",
         caption: "Medallion Architecture Pipeline - Bronze-Silver-Gold data layers with Azure Data Factory integration",
         type: "architecture"
       }
