@@ -7,6 +7,74 @@ import { ArrowLeft, ExternalLink, Github, Calendar, Users, Target } from "lucide
 import { Link } from "wouter";
 
 const projectsData = {
+  "gcp-azure-migration": {
+    title: "GCP to Azure Migration & Governance Platform",
+    subtitle: "Enterprise-scale automated data pipeline solution enabling seamless migration, processing, and governance of large-scale datasets between Google Cloud Platform and Microsoft Azure with zero data loss and comprehensive security controls",
+    description: "This project involves building large-scale data pipelines to migrate, process, and govern data between Google Cloud and Azure. The solution implements a comprehensive three-layer architecture (landing, raw, intermediate, curated) with robust security, logging, and automated governance controls. The system handles both dimensional and fact tables with full-load and delta-load capabilities, ensuring data integrity and optimal performance through watermark column implementation.",
+    technologies: ["Azure Data Factory", "Databricks", "PySpark", "SQL", "Unity Catalog", "Azure Active Directory", "Google Cloud Storage", "Azure Blob Storage", "ADLS", "Key Vault", "Logic Apps"],
+    duration: "12 months", 
+    team: "8 engineers + 2 cloud architects",
+    impact: "Zero data loss migration, 100% automation, enterprise-grade security compliance",
+    highlights: [
+      "Zero Data Loss Migration: Achieved seamless transfer of terabytes of data with comprehensive validation and monitoring",
+      "Automated Governance: Implemented end-to-end RBAC with Unity Catalog integration for enterprise-grade security", 
+      "Scalable Architecture: Built parameterized pipelines capable of handling dynamic data sources and table structures",
+      "Real-Time Monitoring: Integrated comprehensive logging and alerting mechanisms for proactive pipeline management"
+    ],
+    challenges: [
+      "Cross-Cloud Connectivity: Establishing secure, reliable data transfer between GCP and Azure platforms while maintaining data integrity",
+      "Incremental Data Processing: Implementing watermark column logic to efficiently handle large-scale incremental loads without duplication",
+      "Enterprise Security Integration: Seamlessly integrating Unity Catalog with Azure Active Directory for role-based access control across platforms"
+    ],
+    results: [
+      "Data Transfer Efficiency: Enabled automated migration of large-scale datasets with watermark column optimization reducing processing time and preventing data duplication",
+      "Security Compliance: Established enterprise-grade data governance with integrated RBAC and secure credential management",
+      "Operational Excellence: Achieved 100% automation in data pipeline management with real-time monitoring and failure alerting",
+      "Cross-Platform Integration: Successfully bridged GCP and Azure ecosystems with robust, scalable data processing capabilities"
+    ],
+    architecture: {
+      description: "Multi-Layer Data Flow: Implements landing → raw → intermediate → curated data layers for systematic processing with Cross-Platform Integration and Automated Pipeline Orchestration.",
+      components: [
+        "Multi-Layer Data Flow: landing → raw → intermediate → curated data layers",
+        "Cross-Platform Integration: Seamless connectivity between GCP and Azure using SHIR and secure credential management", 
+        "Automated Pipeline Orchestration: End-to-end automation with parameterized pipelines for dynamic source and table management",
+        "Security & Governance Framework: RBAC integration with Unity Catalog and AAD for comprehensive access control"
+      ]
+    },
+    images: [
+      {
+        url: "/attached_assets/architecture_1751664339599.jpg",
+        caption: "Complete ETL Architecture - GCP to Azure Migration with Delta Lake layers",
+        type: "architecture"
+      },
+      {
+        url: "/attached_assets/for_each_loop_1751664339602.png", 
+        caption: "Azure Data Factory ForEach Loop Implementation for dynamic pipeline processing",
+        type: "pipeline"
+      },
+      {
+        url: "/attached_assets/intermediate_to_curated_1751664339604.png",
+        caption: "Intermediate to Curated Layer Data Processing with metadata lookup",
+        type: "processing"
+      },
+      {
+        url: "/attached_assets/landing_to_raw_1751664339606.png",
+        caption: "Landing to Raw Layer Processing with success/failure handling",
+        type: "processing"
+      },
+      {
+        url: "/attached_assets/raw_to_intermediate_1751664339607.png",
+        caption: "Raw to Intermediate Layer Processing Pipeline",
+        type: "processing"
+      },
+      {
+        url: "/attached_assets/Screenshot 2024-10-17 160144_1751664339608.png",
+        caption: "Azure Data Factory Pipeline Parameters and Monitoring Dashboard",
+        type: "dashboard"
+      }
+    ],
+    goal: "Build an enterprise-grade, automated data pipeline solution that seamlessly migrates and governs large-scale datasets between Google Cloud Platform and Microsoft Azure with zero data loss and comprehensive security controls."
+  },
   "real-time-analytics-pipeline": {
     title: "Real-time Analytics Pipeline",
     subtitle: "Scalable streaming data processing with sub-second latency",
@@ -41,6 +109,7 @@ const projectsData = {
         "Grafana for monitoring and alerting"
       ]
     },
+    goal: "Build a real-time analytics pipeline capable of processing 100K+ events per second with sub-second latency for e-commerce streaming data.",
     images: [
       {
         url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600",
@@ -93,6 +162,7 @@ const projectsData = {
         "Python microservices for ML predictions"
       ]
     },
+    goal: "Develop a comprehensive customer analytics platform that increases conversion rates by 25% through data-driven insights and personalized campaigns.",
     images: [
       {
         url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600",
@@ -145,6 +215,7 @@ const projectsData = {
         "DataDog for monitoring and alerting"
       ]
     },
+    goal: "Modernize legacy data warehouse infrastructure achieving 70% performance improvement and 40% cost reduction through cloud migration.",
     images: [
       {
         url: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600",
@@ -197,6 +268,7 @@ const projectsData = {
         "Prometheus for monitoring"
       ]
     },
+    goal: "Build a comprehensive MLOps platform automating the entire machine learning lifecycle with 50% faster model deployment and 90% reduction in manual work.",
     images: [
       {
         url: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600",
@@ -249,6 +321,7 @@ const projectsData = {
         "CloudFormation for infrastructure"
       ]
     },
+    goal: "Lead enterprise-scale migration to AWS achieving 40% cost reduction and 99.9% uptime improvement through modern cloud architecture.",
     images: [
       {
         url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600",
@@ -301,6 +374,7 @@ const projectsData = {
         "Slack integration for alerts"
       ]
     },
+    goal: "Implement enterprise-wide data quality framework achieving 95% improvement in data reliability and 80% faster issue detection across 500+ data sources.",
     images: [
       {
         url: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600",
@@ -524,11 +598,29 @@ export default function ProjectDetail() {
           </motion.section>
         </div>
 
+        {/* Project Goal */}
+        {(project as any).goal && (
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="mb-16"
+          >
+            <Card className="bg-gradient-to-r from-blue-50 to-emerald-50 border-2 border-blue-200">
+              <CardContent className="p-8 text-center">
+                <Target className="mx-auto h-8 w-8 text-blue-600 mb-4" />
+                <h3 className="text-xl font-bold text-slate-800 mb-4">Project Goal</h3>
+                <p className="text-lg text-slate-700 font-medium italic">{(project as any).goal}</p>
+              </CardContent>
+            </Card>
+          </motion.section>
+        )}
+
         {/* Action Buttons */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
           className="text-center"
         >
           <div className="flex flex-wrap justify-center gap-4">
