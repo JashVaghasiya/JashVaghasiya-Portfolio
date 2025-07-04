@@ -1,29 +1,59 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { SiPython, SiPostgresql, SiDocker, SiJavascript, SiApachespark, SiApachekafka, SiApacheairflow, SiSnowflake, SiDatabricks } from "react-icons/si";
-import { Database, Cloud, Code } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Database, Cloud, Code, Cog, Shield, BarChart3, Server } from "lucide-react";
 
 export default function SkillsSection() {
-  const technicalSkills = [
-    { name: "Python & PySpark", icon: SiPython, color: "text-blue-600" },
-    { name: "SQL & T-SQL", icon: Database, color: "text-emerald-600" },
-    { name: "Azure Data Factory & Synapse", icon: Cloud, color: "text-blue-500" },
-    { name: "Apache Spark & Kafka", icon: SiApachespark, color: "text-orange-500" },
-    { name: "Databricks & Delta Lake", icon: SiDatabricks, color: "text-red-600" },
-    { name: "JavaScript & Scala", icon: SiJavascript, color: "text-yellow-500" },
-    { name: "Docker & Kubernetes", icon: SiDocker, color: "text-blue-500" },
-    { name: "Apache Airflow", icon: SiApacheairflow, color: "text-green-600" }
-  ];
-
-  const tools = [
-    { name: "Python", icon: SiPython, color: "text-blue-600" },
-    { name: "Apache Spark", icon: SiApachespark, color: "text-orange-500" },
-    { name: "Databricks", icon: SiDatabricks, color: "text-red-600" },
-    { name: "PostgreSQL", icon: SiPostgresql, color: "text-emerald-600" },
-    { name: "Docker", icon: SiDocker, color: "text-blue-500" },
-    { name: "Kafka", icon: SiApachekafka, color: "text-purple-600" },
-    { name: "Airflow", icon: SiApacheairflow, color: "text-green-600" },
-    { name: "Snowflake", icon: SiSnowflake, color: "text-cyan-600" }
+  const skillCategories = [
+    {
+      title: "Data Engineering",
+      icon: Database,
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
+      skills: ["ETL/ELT Pipelines", "Data Warehousing", "Data Modeling (Star & Snowflake Schema)", "Data Governance"]
+    },
+    {
+      title: "Cloud & Data Platforms",
+      icon: Cloud,
+      color: "text-emerald-600",
+      bgColor: "bg-emerald-50",
+      skills: ["Azure Data Factory", "Power BI", "Azure Synapse Analytics", "Azure Data Lake", "Databricks", "AWS Redshift", "Lambda", "BigQuery", "Snowflake"]
+    },
+    {
+      title: "Databases",
+      icon: Server,
+      color: "text-purple-600",
+      bgColor: "bg-purple-50",
+      skills: ["Microsoft SQL Server", "PostgreSQL", "MySQL", "NoSQL (MongoDB, CosmosDB)"]
+    },
+    {
+      title: "Programming",
+      icon: Code,
+      color: "text-orange-600",
+      bgColor: "bg-orange-50",
+      skills: ["Python", "JavaScript", "SQL", "T-SQL", "PL-SQL", "PySpark", "Scala", "Bash", "PowerShell"]
+    },
+    {
+      title: "Big Data Technologies",
+      icon: BarChart3,
+      color: "text-red-600",
+      bgColor: "bg-red-50",
+      skills: ["Apache Spark", "Hadoop", "Hive", "Kafka"]
+    },
+    {
+      title: "Workflow & DevOps",
+      icon: Cog,
+      color: "text-indigo-600",
+      bgColor: "bg-indigo-50",
+      skills: ["Apache Airflow", "Azure DevOps", "Git", "Docker", "Kubernetes", "Terraform"]
+    },
+    {
+      title: "Monitoring & Security",
+      icon: Shield,
+      color: "text-cyan-600",
+      bgColor: "bg-cyan-50",
+      skills: ["Azure Monitor", "Datadog", "Prometheus", "RBAC", "Unity Catalog", "Data Encryption"]
+    }
   ];
 
   return (
@@ -36,84 +66,49 @@ export default function SkillsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-slate-800 mb-4">Skills & Technologies</h2>
+          <h2 className="text-4xl font-bold text-slate-800 mb-4">Technical Skills</h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Comprehensive technical expertise across the data engineering ecosystem
+            Comprehensive expertise across the modern data engineering technology stack
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Technical Skills */}
-          <div>
-            <motion.h3
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-2xl font-semibold text-slate-800 mb-8"
-            >
-              Technical Skills
-            </motion.h3>
-            
-            <div className="grid grid-cols-1 gap-4">
-              {technicalSkills.map((skill, index) => {
-                const IconComponent = skill.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <Card className="bg-slate-50 hover:bg-blue-50 transition-colors duration-200">
-                      <CardContent className="p-4 flex items-center">
-                        <IconComponent className={`text-2xl ${skill.color} mr-4`} />
-                        <span className="text-slate-700 font-medium">{skill.name}</span>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-          
-          {/* Tools & Technologies */}
-          <div>
-            <motion.h3
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-2xl font-semibold text-slate-800 mb-8"
-            >
-              Tools & Technologies
-            </motion.h3>
-            
-            <div className="grid grid-cols-2 gap-4">
-              {tools.map((tool, index) => {
-                const IconComponent = tool.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <Card className="bg-slate-50 hover:bg-blue-50 transition-colors duration-200 cursor-pointer">
-                      <CardContent className="p-4 text-center">
-                        <IconComponent className={`text-3xl ${tool.color} mb-2 mx-auto`} />
-                        <p className="text-slate-700 font-medium">{tool.name}</p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {skillCategories.map((category, index) => {
+            const IconComponent = category.icon;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className={`${category.bgColor} border-l-4 border-l-current hover:shadow-lg transition-all duration-300`}>
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      <div className={`w-10 h-10 rounded-lg bg-white flex items-center justify-center mr-4`}>
+                        <IconComponent className={`h-6 w-6 ${category.color}`} />
+                      </div>
+                      <h3 className={`text-xl font-semibold ${category.color}`}>
+                        {category.title}
+                      </h3>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill, skillIndex) => (
+                        <Badge
+                          key={skillIndex}
+                          variant="secondary"
+                          className="bg-white/80 text-slate-700 hover:bg-white transition-colors"
+                        >
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
