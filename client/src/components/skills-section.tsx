@@ -6,52 +6,39 @@ import { Database, Cloud, Code, Cog, Shield, BarChart3, Server } from "lucide-re
 export default function SkillsSection() {
   const skillCategories = [
     {
-      title: "Data Engineering",
-      icon: Database,
-      color: "text-slate-700",
-      bgColor: "bg-slate-50",
-      skills: ["Data Warehousing", "Data Modeling (Star & Snowflake Schema)", "Data Governance"]
-    },
-    {
       title: "Cloud & Data Platforms",
       icon: Cloud,
-      color: "text-slate-700",
-      bgColor: "bg-slate-50",
+      color: "text-slate-800",
       skills: ["Azure Data Factory", "Power BI", "Azure Synapse Analytics", "Azure Data Lake", "Databricks", "AWS Redshift", "Lambda", "BigQuery", "Snowflake"]
     },
     {
       title: "Databases",
       icon: Server,
-      color: "text-slate-700",
-      bgColor: "bg-slate-50",
+      color: "text-slate-800",
       skills: ["Microsoft SQL Server", "PostgreSQL", "MySQL", "NoSQL (MongoDB, CosmosDB)"]
     },
     {
       title: "Programming",
       icon: Code,
-      color: "text-slate-700",
-      bgColor: "bg-slate-50",
+      color: "text-slate-800",
       skills: ["Python", "JavaScript", "SQL", "T-SQL", "PL-SQL", "PySpark", "Scala", "Bash", "PowerShell"]
     },
     {
       title: "Big Data Technologies",
       icon: BarChart3,
-      color: "text-slate-700",
-      bgColor: "bg-slate-50",
+      color: "text-slate-800",
       skills: ["Apache Spark", "Hadoop", "Hive", "Kafka"]
     },
     {
       title: "Workflow & DevOps",
       icon: Cog,
-      color: "text-slate-700",
-      bgColor: "bg-slate-50",
+      color: "text-slate-800",
       skills: ["Apache Airflow", "Azure DevOps", "Git", "Docker", "Kubernetes", "Terraform"]
     },
     {
       title: "Monitoring & Security",
       icon: Shield,
-      color: "text-slate-700",
-      bgColor: "bg-slate-50",
+      color: "text-slate-800",
       skills: ["Azure Monitor", "Datadog", "Prometheus", "RBAC", "Unity Catalog", "Data Encryption"]
     }
   ];
@@ -72,7 +59,7 @@ export default function SkillsSection() {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="space-y-8">
           {skillCategories.map((category, index) => {
             const IconComponent = category.icon;
             return (
@@ -82,30 +69,24 @@ export default function SkillsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                className="bg-white rounded-lg border border-slate-200 hover:border-slate-300 transition-all duration-300 p-6"
               >
-                <Card className={`${category.bgColor} border border-slate-200 hover:shadow-md transition-all duration-300`}>
-                  <CardContent className="p-6">
-                    <div className="flex items-center mb-4">
-                      <div className={`w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center mr-4`}>
-                        <IconComponent className={`h-6 w-6 ${category.color}`} />
-                      </div>
-                      <h3 className={`text-xl font-semibold ${category.color}`}>
-                        {category.title}
-                      </h3>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {category.skills.map((skill, skillIndex) => (
-                        <Badge
-                          key={skillIndex}
-                          variant="secondary"
-                          className="bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors"
-                        >
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+                <div className="flex items-center mb-4">
+                  <IconComponent className={`h-5 w-5 ${category.color} mr-3`} />
+                  <h3 className={`text-lg font-semibold ${category.color}`}>
+                    {category.title}
+                  </h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill, skillIndex) => (
+                    <span
+                      key={skillIndex}
+                      className="px-3 py-1 text-sm bg-slate-100 text-slate-700 rounded-md hover:bg-slate-200 transition-colors"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </motion.div>
             );
           })}
