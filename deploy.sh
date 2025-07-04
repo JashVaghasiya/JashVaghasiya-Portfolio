@@ -33,9 +33,19 @@ echo "✅ Dependencies installed successfully"
 
 # Build the project
 echo "🔨 Building the project..."
-npm run build
+echo "This may take a few minutes..."
 
-if [ $? -ne 0 ]; then
+# Set longer timeout for build
+timeout 600 npm run build
+
+if [ $? -eq 124 ]; then
+    echo "⚠️ Build timed out. Trying alternative approach..."
+    # Try building in steps
+    echo "Building frontend..."
+    npx vite build
+    echo "Building backend..."
+    npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+elif [ $? -ne 0 ]; then
     echo "❌ Build failed. Please check the errors above."
     exit 1
 fi
