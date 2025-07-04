@@ -131,55 +131,55 @@ const projectsData = {
     ]
   },
   "customer-analytics-dashboard": {
-    title: "Customer Analytics Dashboard",
-    subtitle: "Interactive business intelligence platform for data-driven decisions",
-    description: "Developed a comprehensive customer analytics platform that processes customer behavior data from multiple sources, providing actionable insights for marketing teams. The dashboard increased conversion rates by 25% through targeted customer segmentation and personalized campaigns.",
-    technologies: ["Tableau", "SQL", "Python", "PostgreSQL", "Apache Airflow", "AWS S3"],
-    duration: "4 months",
-    team: "3 engineers + 2 analysts",
-    impact: "25% increase in conversion rates, $5M revenue impact",
+    title: "LAPD Crime Data - Data Warehousing And Analytics Platform",
+    subtitle: "Comprehensive end-to-end data analytics platform processing 15+ years of LAPD crime and arrest data using Azure cloud services",
+    description: "This ongoing project focuses on building a comprehensive data pipeline and analytics platform for LAPD crime data spanning from 2010 to present. The solution addresses LAPD's transition to FBI NIBRS compliance by implementing a medallion architecture that transforms raw crime reports into standardized star schema data models. The platform handles complex data quality challenges inherent in paper-transcribed reports, geographic privacy constraints, and system migration complexities.",
+    technologies: ["Azure Data Factory", "ADLS Gen2", "Databricks", "Key Vault", "Logic Apps", "Azure DevOps", "PySpark", "SQL", "Apache Airflow", "Power BI", "Star Schema Modeling"],
+    duration: "8 months (ongoing)",
+    team: "2 engineers + 1 data analyst",
+    impact: "FBI NIBRS compliance, enhanced law enforcement decision-making, automated data processing",
     highlights: [
-      "Built customer 360-degree view combining online and offline data",
-      "Implemented predictive customer lifetime value models",
-      "Created automated customer segmentation with ML algorithms",
-      "Designed self-service analytics for business users"
+      "15+ Years Data Processing: Handling comprehensive crime and arrest datasets from 2010-present with scalable processing capabilities",
+      "FBI NIBRS Compliance: Implementing standardized crime reporting protocols to meet federal requirements",
+      "Advanced Analytics Capabilities: Delivering trend analysis, KPI dashboards, and geographic clustering for law enforcement insights",
+      "End-to-End Automation: Complete pipeline from API data extraction to structured warehouse storage and dashboard visualization"
     ],
     challenges: [
-      "Integrating data from 15+ disparate sources with different schemas",
-      "Ensuring data quality and consistency across all touchpoints",
-      "Building scalable ETL processes for 50TB+ of historical data"
+      "Data Quality Management: Addressing inconsistencies and errors from paper-transcribed crime reports requiring advanced validation techniques",
+      "Geographic Privacy Compliance: Implementing data anonymization for addresses rounded to nearest hundred block while maintaining analytical value",
+      "System Migration Complexity: Managing data pipeline stability during LAPD's transition to new Records Management Systems and FBI NIBRS standards"
     ],
     results: [
-      "25% improvement in marketing campaign effectiveness",
-      "50% reduction in time-to-insight for analysts",
-      "90% user adoption rate across marketing teams"
+      "Enhanced Decision-Making: Providing law enforcement with actionable insights through comprehensive crime trend analysis and geographic clustering",
+      "Improved Data Accessibility: Transforming raw crime reports into structured, queryable data warehouse format for easy analysis",
+      "Operational Efficiency: Automated data pipeline reduces manual processing time and ensures consistent data quality",
+      "Public Safety Insights: Enabling evidence-based public safety strategies through advanced analytics and visualization capabilities"
     ],
     architecture: {
-      description: "ETL pipeline with dimensional modeling for optimized analytical queries.",
+      description: "Medallion data architecture with API-to-warehouse pipeline, star schema implementation, and cloud-native integration for comprehensive crime data analytics.",
       components: [
-        "Multi-source data ingestion layer",
-        "Apache Airflow for workflow orchestration",
-        "PostgreSQL data warehouse with star schema",
-        "Tableau for interactive visualizations",
-        "Python microservices for ML predictions"
+        "Medallion Data Architecture: Implements Bronze (raw), Silver (cleaned), and Gold (business-ready) data layers for systematic processing",
+        "API-to-Warehouse Pipeline: End-to-end data flow from API extraction to ADLS storage, Databricks transformation, and structured data warehousing",
+        "Star Schema Implementation: Structured data warehouse design optimized for analytics and reporting requirements",
+        "Cloud-Native Integration: Seamless Azure service integration with automated monitoring and validation frameworks"
       ]
     },
-    goal: "Develop a comprehensive customer analytics platform that increases conversion rates by 25% through data-driven insights and personalized campaigns.",
+    goal: "Build a comprehensive, compliant, and scalable data analytics platform that transforms 15+ years of LAPD crime data into actionable insights through automated pipelines, structured data warehousing, and advanced visualization capabilities.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600",
-        caption: "Customer Analytics Dashboard Overview",
-        type: "dashboard"
+        url: "/api/assets/Screenshot%202025-07-04%20175335_1751666108378.png",
+        caption: "Arrest Data Star Schema (2010-Present) - Comprehensive dimensional model with fact and dimension tables",
+        type: "schema"
       },
       {
-        url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600",
-        caption: "Data Pipeline Architecture",
+        url: "/api/assets/Screenshot%202025-07-04%20175414_1751666108379.png",
+        caption: "Crime Data Star Schema (2010-Present) - Complete data warehouse design for law enforcement analytics",
+        type: "schema"
+      },
+      {
+        url: "/api/assets/Screenshot%202025-07-04%20175546_1751666154164.png",
+        caption: "Medallion Architecture Pipeline - Bronze-Silver-Gold data layers with Azure Data Factory integration",
         type: "architecture"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600",
-        caption: "Customer Segmentation Model",
-        type: "model"
       }
     ]
   },
