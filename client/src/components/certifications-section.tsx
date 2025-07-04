@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { SiDatabricks, SiApachespark } from "react-icons/si";
-import { Shield, Award } from "lucide-react";
+import { Shield, Award, ExternalLink } from "lucide-react";
 
 export default function CertificationsSection() {
   const certifications = [
@@ -10,28 +10,32 @@ export default function CertificationsSection() {
       issuer: "Microsoft",
       year: "2024",
       icon: Shield,
-      color: "bg-blue-600"
+      color: "bg-blue-600",
+      verifyUrl: "https://learn.microsoft.com/en-us/certifications/azure-data-engineer/"
     },
     {
       name: "Databricks Certified Data Engineer Associate",
       issuer: "Databricks",
       year: "2024",
       icon: SiDatabricks,
-      color: "bg-red-600"
+      color: "bg-red-600",
+      verifyUrl: "https://www.databricks.com/learn/certification/data-engineer-associate"
     },
     {
       name: "Databricks Certified Data Engineer Professional",
       issuer: "Databricks",
       year: "2024",
       icon: Award,
-      color: "bg-orange-600"
+      color: "bg-orange-600",
+      verifyUrl: "https://www.databricks.com/learn/certification/data-engineer-professional"
     },
     {
       name: "Databricks Certified Associate Developer for Apache Spark 3.0",
       issuer: "Databricks",
       year: "2024",
       icon: SiApachespark,
-      color: "bg-emerald-600"
+      color: "bg-emerald-600",
+      verifyUrl: "https://www.databricks.com/learn/certification/apache-spark-developer-associate"
     }
   ];
 
@@ -63,20 +67,34 @@ export default function CertificationsSection() {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.02 }}
               >
-                <Card className="bg-white hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-start">
-                      <div className={`w-12 h-12 ${cert.color} rounded-lg flex items-center justify-center mr-4 flex-shrink-0`}>
-                        <IconComponent className="text-white h-6 w-6" />
+                <a
+                  href={cert.verifyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <Card className="bg-white hover:shadow-lg transition-all duration-300 cursor-pointer group">
+                    <CardContent className="p-6">
+                      <div className="flex items-start">
+                        <div className={`w-12 h-12 ${cert.color} rounded-lg flex items-center justify-center mr-4 flex-shrink-0`}>
+                          <IconComponent className="text-white h-6 w-6" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex items-start justify-between">
+                            <div>
+                              <h3 className="text-lg font-semibold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors">
+                                {cert.name}
+                              </h3>
+                              <p className="text-slate-600 mb-1">{cert.issuer}</p>
+                              <p className="text-slate-500 text-sm">{cert.year}</p>
+                            </div>
+                            <ExternalLink className="h-4 w-4 text-slate-400 group-hover:text-blue-600 transition-colors flex-shrink-0 ml-2" />
+                          </div>
+                        </div>
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-slate-800 mb-2">{cert.name}</h3>
-                        <p className="text-slate-600 mb-1">{cert.issuer}</p>
-                        <p className="text-slate-500 text-sm">{cert.year}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </a>
               </motion.div>
             );
           })}
