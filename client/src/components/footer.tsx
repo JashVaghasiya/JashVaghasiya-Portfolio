@@ -24,7 +24,7 @@ export default function Footer() {
     <footer className="bg-slate-900 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h3 className="text-2xl font-bold text-white mb-4">Alex Chen</h3>
+          <h3 className="text-2xl font-bold text-white mb-4">Jash Vaghasiya</h3>
           <p className="text-slate-400 mb-6">Data Engineer</p>
           
           <div className="flex justify-center space-x-6 mb-8">

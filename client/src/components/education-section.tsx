@@ -6,20 +6,20 @@ import { GraduationCap, University, Code, Users, BookOpen } from "lucide-react";
 export default function EducationSection() {
   const educations = [
     {
-      degree: "Master of Science in Data Science",
-      institution: "Stanford University",
-      period: "2016 - 2018",
-      description: "Specialized in machine learning, statistical modeling, and big data analytics. Thesis on real-time fraud detection systems.",
-      achievements: ["GPA: 3.8/4.0", "Magna Cum Laude"],
+      degree: "Postgraduate Certification, Artificial Intelligence and Machine Learning",
+      institution: "Lambton College",
+      period: "Jan 2023 - Aug 2024",
+      description: "Advanced studies in AI and machine learning with focus on practical applications in data engineering and analytics. Specialized in deep learning, neural networks, and AI-driven data processing systems.",
+      achievements: ["GPA: 3.39/4.0", "Distinguished Performance"],
       icon: GraduationCap,
       color: "bg-blue-600"
     },
     {
-      degree: "Bachelor of Science in Computer Science",
-      institution: "UC Berkeley",
-      period: "2012 - 2016",
-      description: "Focus on algorithms, database systems, and software engineering. Completed internships at major tech companies.",
-      achievements: ["GPA: 3.7/4.0", "Dean's List"],
+      degree: "B.C.A. (Bachelor of Computer Application), Computer Programming",
+      institution: "Veer Narmad South Gujarat University, Surat",
+      period: "Jul 2017 - Jul 2021",
+      description: "Comprehensive computer science education with focus on programming, database systems, and software engineering. Strong foundation in algorithms, data structures, and system design.",
+      achievements: ["CGPA: 8.89/10", "First Class with Distinction"],
       icon: University,
       color: "bg-emerald-600"
     }
@@ -27,22 +27,16 @@ export default function EducationSection() {
 
   const continuousLearning = [
     {
-      title: "Online Courses",
-      description: "Coursera, edX, Udacity specializations in Data Engineering and Machine Learning",
+      title: "Professional Development",
+      description: "Continuous learning through hands-on experience with enterprise-scale data engineering projects",
       icon: Code,
       color: "text-blue-600"
     },
     {
-      title: "Conference Speaker",
-      description: "Regular speaker at data engineering conferences and meetups",
+      title: "Industry Certifications",
+      description: "Multiple Databricks and Microsoft Azure certifications in data engineering and analytics",
       icon: Users,
       color: "text-emerald-600"
-    },
-    {
-      title: "Publications",
-      description: "Published research papers on scalable data processing systems",
-      icon: BookOpen,
-      color: "text-purple-600"
     }
   ];
 

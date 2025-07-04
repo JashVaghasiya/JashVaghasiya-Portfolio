@@ -7,46 +7,25 @@ import { Link } from "wouter";
 export default function ProjectsSection() {
   const projects = [
     {
-      id: "real-time-analytics-pipeline",
-      title: "Real-time Analytics Pipeline",
-      description: "Built a scalable real-time data pipeline using Apache Kafka, Spark, and Redis to process streaming e-commerce data with sub-second latency.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
-      technologies: ["Apache Kafka", "Spark", "Redis"]
-    },
-    {
-      id: "customer-analytics-dashboard",
-      title: "Customer Analytics Dashboard",
-      description: "Designed interactive dashboards for customer behavior analysis, enabling data-driven marketing decisions and increasing conversion rates by 25%.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
-      technologies: ["Tableau", "SQL", "Python"]
-    },
-    {
-      id: "data-warehouse-optimization",
-      title: "Data Warehouse Optimization",
-      description: "Redesigned legacy data warehouse architecture, improving query performance by 70% and reducing storage costs by implementing efficient partitioning strategies.",
-      image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
-      technologies: ["PostgreSQL", "Snowflake", "dbt"]
-    },
-    {
-      id: "ml-pipeline-automation",
-      title: "ML Pipeline Automation",
-      description: "Automated machine learning pipeline for predictive analytics, including data preprocessing, model training, and deployment using MLOps practices.",
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
-      technologies: ["MLflow", "Docker", "Kubernetes"]
-    },
-    {
-      id: "cloud-data-migration",
-      title: "Cloud Data Migration",
-      description: "Led migration of on-premises data infrastructure to AWS, implementing auto-scaling and cost optimization strategies that reduced operational costs by 40%.",
+      id: "gcp-azure-migration",
+      title: "GCP to Azure Migration & Governance Platform",
+      description: "Enterprise-scale automated data pipeline solution enabling seamless migration, processing, and governance of large-scale datasets between Google Cloud Platform and Microsoft Azure with zero data loss and comprehensive security controls.",
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
-      technologies: ["AWS", "Terraform", "Lambda"]
+      technologies: ["Azure", "GCP", "PySpark", "SQL", "Databricks"]
     },
     {
-      id: "data-quality-framework",
-      title: "Data Quality Framework",
-      description: "Implemented comprehensive data quality monitoring system with automated testing, anomaly detection, and alerting mechanisms for critical data sources.",
-      image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
-      technologies: ["Great Expectations", "Airflow", "Grafana"]
+      id: "real-time-streaming-deployments",
+      title: "Real-Time Streaming and Automated Deployments",
+      description: "Enterprise-scale cloud-native data platform leveraging Infrastructure-as-Code, real-time streaming, and automated CI/CD deployments to deliver scalable, reliable, and high-performance data engineering solutions on Microsoft Azure.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+      technologies: ["Azure", "Kafka", "PySpark", "Databricks", "DLT"]
+    },
+    {
+      id: "data-warehousing-analytics",
+      title: "Data Warehousing And Analytics Platform",
+      description: "Comprehensive end-to-end data analytics platform processing 15+ years of LAPD crime and arrest data using Azure cloud services, implementing medallion architecture and FBI NIBRS compliance standards to deliver actionable public safety insights through advanced data warehousing and visualization capabilities.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+      technologies: ["Azure", "Power BI", "Airflow", "Spark", "SQL"]
     }
   ];
 

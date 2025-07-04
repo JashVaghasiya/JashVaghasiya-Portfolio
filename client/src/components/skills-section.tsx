@@ -1,48 +1,60 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { SiPython, SiPostgresql, SiAmazonwebservices, SiDocker, SiTableau, SiGit } from "react-icons/si";
+import { SiPython, SiPostgresql, SiDocker, SiGit, SiJavascript, SiScala, SiApachespark, SiApachekafka, SiApacheairflow, SiKubernetes, SiTerraform, SiSnowflake, SiDatabricks, SiMongodb, SiMysql } from "react-icons/si";
 import { Database, Award, BarChart3 } from "lucide-react";
 
 export default function SkillsSection() {
   const technicalSkills = [
-    { name: "Python", percentage: 95 },
-    { name: "SQL & Database Design", percentage: 90 },
+    { name: "Python & PySpark", percentage: 95 },
+    { name: "SQL & T-SQL", percentage: 90 },
+    { name: "Azure Data Factory & Synapse", percentage: 90 },
     { name: "Apache Spark & Kafka", percentage: 85 },
-    { name: "AWS/Azure Cloud Services", percentage: 80 },
-    { name: "Docker & Kubernetes", percentage: 75 }
+    { name: "Databricks & Delta Lake", percentage: 85 },
+    { name: "JavaScript & Scala", percentage: 80 },
+    { name: "Docker & Kubernetes", percentage: 75 },
+    { name: "Apache Airflow", percentage: 80 }
   ];
 
   const tools = [
     { name: "Python", icon: SiPython, color: "text-blue-600" },
+    { name: "Apache Spark", icon: SiApachespark, color: "text-orange-500" },
+    { name: "Databricks", icon: SiDatabricks, color: "text-red-600" },
     { name: "PostgreSQL", icon: SiPostgresql, color: "text-emerald-600" },
-    { name: "AWS", icon: SiAmazonwebservices, color: "text-orange-500" },
     { name: "Docker", icon: SiDocker, color: "text-blue-500" },
-    { name: "Tableau", icon: SiTableau, color: "text-purple-600" },
-    { name: "Git", icon: SiGit, color: "text-red-600" }
+    { name: "Kafka", icon: SiApachekafka, color: "text-purple-600" },
+    { name: "Airflow", icon: SiApacheairflow, color: "text-green-600" },
+    { name: "Snowflake", icon: SiSnowflake, color: "text-cyan-600" }
   ];
 
   const certifications = [
     {
-      name: "AWS Certified Data Engineer",
-      issuer: "Amazon Web Services",
-      year: "2023",
-      icon: SiAmazonwebservices,
+      name: "Microsoft Certified: Azure Data Engineer Associate",
+      issuer: "Microsoft",
+      year: "2024",
+      icon: Database,
       color: "bg-blue-600"
     },
     {
-      name: "Google Cloud Professional Data Engineer",
-      issuer: "Google Cloud",
-      year: "2022",
-      icon: Award,
-      color: "bg-emerald-600"
+      name: "Databricks Certified Data Engineer Associate",
+      issuer: "Databricks",
+      year: "2024",
+      icon: SiDatabricks,
+      color: "bg-red-600"
     },
     {
-      name: "Databricks Certified Data Engineer",
+      name: "Databricks Certified Data Engineer Professional",
       issuer: "Databricks",
-      year: "2023",
-      icon: BarChart3,
-      color: "bg-purple-600"
+      year: "2024",
+      icon: Award,
+      color: "bg-orange-600"
+    },
+    {
+      name: "Databricks Certified Associate Developer for Apache Spark 3.0",
+      issuer: "Databricks",
+      year: "2024",
+      icon: SiApachespark,
+      color: "bg-emerald-600"
     }
   ];
 
