@@ -1,19 +1,18 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-import { SiPython, SiPostgresql, SiDocker, SiGit, SiJavascript, SiScala, SiApachespark, SiApachekafka, SiApacheairflow, SiKubernetes, SiTerraform, SiSnowflake, SiDatabricks, SiMongodb, SiMysql } from "react-icons/si";
-import { Database, Award, BarChart3 } from "lucide-react";
+import { SiPython, SiPostgresql, SiDocker, SiJavascript, SiApachespark, SiApachekafka, SiApacheairflow, SiSnowflake, SiDatabricks } from "react-icons/si";
+import { Database, Cloud, Code } from "lucide-react";
 
 export default function SkillsSection() {
   const technicalSkills = [
-    { name: "Python & PySpark", percentage: 95 },
-    { name: "SQL & T-SQL", percentage: 90 },
-    { name: "Azure Data Factory & Synapse", percentage: 90 },
-    { name: "Apache Spark & Kafka", percentage: 85 },
-    { name: "Databricks & Delta Lake", percentage: 85 },
-    { name: "JavaScript & Scala", percentage: 80 },
-    { name: "Docker & Kubernetes", percentage: 75 },
-    { name: "Apache Airflow", percentage: 80 }
+    { name: "Python & PySpark", icon: SiPython, color: "text-blue-600" },
+    { name: "SQL & T-SQL", icon: Database, color: "text-emerald-600" },
+    { name: "Azure Data Factory & Synapse", icon: Cloud, color: "text-blue-500" },
+    { name: "Apache Spark & Kafka", icon: SiApachespark, color: "text-orange-500" },
+    { name: "Databricks & Delta Lake", icon: SiDatabricks, color: "text-red-600" },
+    { name: "JavaScript & Scala", icon: SiJavascript, color: "text-yellow-500" },
+    { name: "Docker & Kubernetes", icon: SiDocker, color: "text-blue-500" },
+    { name: "Apache Airflow", icon: SiApacheairflow, color: "text-green-600" }
   ];
 
   const tools = [
@@ -25,37 +24,6 @@ export default function SkillsSection() {
     { name: "Kafka", icon: SiApachekafka, color: "text-purple-600" },
     { name: "Airflow", icon: SiApacheairflow, color: "text-green-600" },
     { name: "Snowflake", icon: SiSnowflake, color: "text-cyan-600" }
-  ];
-
-  const certifications = [
-    {
-      name: "Microsoft Certified: Azure Data Engineer Associate",
-      issuer: "Microsoft",
-      year: "2024",
-      icon: Database,
-      color: "bg-blue-600"
-    },
-    {
-      name: "Databricks Certified Data Engineer Associate",
-      issuer: "Databricks",
-      year: "2024",
-      icon: SiDatabricks,
-      color: "bg-red-600"
-    },
-    {
-      name: "Databricks Certified Data Engineer Professional",
-      issuer: "Databricks",
-      year: "2024",
-      icon: Award,
-      color: "bg-orange-600"
-    },
-    {
-      name: "Databricks Certified Associate Developer for Apache Spark 3.0",
-      issuer: "Databricks",
-      year: "2024",
-      icon: SiApachespark,
-      color: "bg-emerald-600"
-    }
   ];
 
   return (
@@ -87,23 +55,27 @@ export default function SkillsSection() {
               Technical Skills
             </motion.h3>
             
-            <div className="space-y-6">
-              {technicalSkills.map((skill, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="space-y-2"
-                >
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-700 font-medium">{skill.name}</span>
-                    <span className="text-slate-600 text-sm">{skill.percentage}%</span>
-                  </div>
-                  <Progress value={skill.percentage} className="h-3" />
-                </motion.div>
-              ))}
+            <div className="grid grid-cols-1 gap-4">
+              {technicalSkills.map((skill, index) => {
+                const IconComponent = skill.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <Card className="bg-slate-50 hover:bg-blue-50 transition-colors duration-200">
+                      <CardContent className="p-4 flex items-center">
+                        <IconComponent className={`text-2xl ${skill.color} mr-4`} />
+                        <span className="text-slate-700 font-medium">{skill.name}</span>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
           
@@ -119,7 +91,7 @@ export default function SkillsSection() {
               Tools & Technologies
             </motion.h3>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
+            <div className="grid grid-cols-2 gap-4">
               {tools.map((tool, index) => {
                 const IconComponent = tool.icon;
                 return (
@@ -140,37 +112,6 @@ export default function SkillsSection() {
                   </motion.div>
                 );
               })}
-            </div>
-            
-            {/* Certifications */}
-            <div>
-              <h4 className="text-xl font-semibold text-slate-800 mb-6">Certifications</h4>
-              <div className="space-y-4">
-                {certifications.map((cert, index) => {
-                  const IconComponent = cert.icon;
-                  return (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: 30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <Card className="bg-slate-50 hover:bg-blue-50 transition-colors duration-200">
-                        <CardContent className="p-4 flex items-center">
-                          <div className={`w-12 h-12 ${cert.color} rounded-lg flex items-center justify-center mr-4 flex-shrink-0`}>
-                            <IconComponent className="text-white text-xl" />
-                          </div>
-                          <div>
-                            <h5 className="font-semibold text-slate-800">{cert.name}</h5>
-                            <p className="text-slate-600 text-sm">{cert.issuer} • {cert.year}</p>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  );
-                })}
-              </div>
             </div>
           </div>
         </div>

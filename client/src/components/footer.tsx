@@ -41,7 +41,7 @@ export default function Footer() {
           
           <div className="border-t border-slate-700 pt-8">
             <p className="text-slate-400 text-sm">
-              © {currentYear} Alex Chen. All rights reserved. Built with modern web technologies.
+              © {currentYear} Jash Vaghasiya. All rights reserved. Built with modern web technologies.
             </p>
           </div>
         </div>

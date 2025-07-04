@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Download, ChevronDown } from "lucide-react";
+import { Mail, Phone, MapPin, Download, ChevronDown, Cloud } from "lucide-react";
 import { SiLinkedin, SiGithub, SiKaggle, SiDatabricks, SiApachespark, SiApachekafka, SiPython, SiJavascript, SiScala, SiMongodb, SiPostgresql, SiAmazon, SiGooglecloud, SiDocker, SiKubernetes, SiApacheairflow, SiSnowflake } from "react-icons/si";
 
 export default function HeroSection() {
@@ -69,6 +69,29 @@ export default function HeroSection() {
         transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
       >
         <SiSnowflake className="w-8 h-8 text-cyan-400" />
+      </motion.div>
+      
+      {/* Cloud Provider Logos */}
+      <motion.div
+        className="absolute bottom-40 left-20 w-14 h-14 bg-blue-500/10 rounded-full flex items-center justify-center"
+        animate={{ y: [0, -8, 0], rotate: [0, 360] }}
+        transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+      >
+        <Cloud className="w-7 h-7 text-blue-400" />
+      </motion.div>
+      <motion.div
+        className="absolute top-20 right-32 w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center"
+        animate={{ y: [0, -6, 0], rotate: [0, -360] }}
+        transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
+      >
+        <SiAmazon className="w-6 h-6 text-orange-400" />
+      </motion.div>
+      <motion.div
+        className="absolute bottom-24 right-40 w-15 h-15 bg-emerald-500/10 rounded-full flex items-center justify-center"
+        animate={{ y: [0, -9, 0], rotate: [0, 360] }}
+        transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 2.2 }}
+      >
+        <SiGooglecloud className="w-7 h-7 text-emerald-400" />
       </motion.div>
       
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">

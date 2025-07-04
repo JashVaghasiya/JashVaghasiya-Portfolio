@@ -1,8 +1,8 @@
-# Alex Chen Portfolio - Data Engineer
+# Jash Vaghasiya Portfolio - Data Engineer
 
 ## Overview
 
-This is a modern full-stack portfolio website for Alex Chen, a Data Engineer. The application is built using a React frontend with a Node.js/Express backend, featuring a clean, responsive design showcasing professional experience, projects, skills, and contact functionality.
+This is a modern portfolio website for Jash Vaghasiya, a Data Engineer. The application is built using React with TypeScript, featuring a clean, responsive design showcasing professional experience, projects, skills, certifications, education, and contact functionality. The portfolio is optimized for static deployment on platforms like Netlify and Vercel.
 
 ## System Architecture
 
@@ -106,6 +106,13 @@ Changelog:
 - July 04, 2025. Fixed deployment issues by converting to static-friendly contact form
 - July 04, 2025. Added floating technology logos in hero section background
 - July 04, 2025. Updated experience section with actual SpicyChat.AI and Dione Apps work history
+- July 04, 2025. Enhanced skills section: removed progress bars, added skill names with logos
+- July 04, 2025. Created separate certifications section with Microsoft and Databricks certifications
+- July 04, 2025. Added Azure, AWS, and GCP cloud provider logos to hero section
+- July 04, 2025. Removed Kaggle links throughout the portfolio
+- July 04, 2025. Updated education section with actual Lambton College and university details
+- July 04, 2025. Centered continuous learning sections and updated copyright to Jash Vaghasiya
+- July 04, 2025. Improved contact form reliability with better error handling and fallback options
 ```
 
 ## User Preferences

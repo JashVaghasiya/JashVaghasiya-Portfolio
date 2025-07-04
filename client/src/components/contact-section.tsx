@@ -95,11 +95,6 @@ export default function ContactSection() {
       icon: SiGithub,
       href: "https://github.com/JashVaghasiya",
       color: "hover:bg-slate-900"
-    },
-    {
-      icon: SiKaggle,
-      href: "https://kaggle.com/jashvaghasiya",
-      color: "hover:bg-orange-600"
     }
   ];
 
