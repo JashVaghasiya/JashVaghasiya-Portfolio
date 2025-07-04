@@ -16,10 +16,10 @@ export default function HeroSection() {
   };
 
   const handleDownloadResume = () => {
-    // Create a dummy PDF download
+    // Download the actual resume file
     const link = document.createElement('a');
-    link.href = 'data:application/pdf;base64,JVBERi0xLjQKJeLjz9MKMSAwIG9iago8PAovVHlwZSAvQ2F0YWxvZwovUGFnZXMgMiAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL1R5cGUgL1BhZ2VzCi9LaWRzIFszIDAgUl0KL0NvdW50IDEKPD4KZW5kb2JqCjMgMCBvYmoKPDwKL1R5cGUgL1BhZ2UKL1BhcmVudCAyIDAgUgovTWVkaWFCb3ggWzAgMCA2MTIgNzkyXQovUmVzb3VyY2VzIDw8Ci9Gb250IDw8Ci9GMSANCjAgUgovRjIgDQo+PgovRm9udE5hbWUgL0FyaWFsCi9TdWJ0eXBlIC9UeXBlMQo+PgovUHJvY1NldCBbL1BERiAvVGV4dF0KPj4KL0NvbnRlbnRzIDQgMCBSCj4+CmVuZG9iago0IDAgb2JqCjw8Ci9MZW5ndGggNDQKPj4Kc3RyZWFtCkJUCi9GMSA3MiBUZgooSGVsbG8gV29ybGQhKSBUagpFVApzdHJlYW0KZW5kb2JqCnhyZWYKMCA1CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAwOSAwMDAwMCBuIAowMDAwMDAwMDU4IDAwMDAwIG4gCjAwMDAwMDAxMTUgMDAwMDAgbiAKMDAwMDAwMDM5MiAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9TaXplIDUKL1Jvb3QgMSAwIFIKPj4Kc3RhcnR4cmVmCjQ4NQolJUVPRgo=';
-    link.download = 'Jash_Vaghasiya_Resume.pdf';
+    link.href = '/attached_assets/Jash Vaghasiya-Engineer_1751669132819.docx';
+    link.download = 'Jash_Vaghasiya_Resume.docx';
     link.click();
   };
 
