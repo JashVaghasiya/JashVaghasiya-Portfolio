@@ -11,7 +11,9 @@ export default function CertificationsSection() {
       year: "2024",
       icon: Shield,
       color: "bg-blue-600",
-      verifyUrl: "https://learn.microsoft.com/en-us/certifications/azure-data-engineer/"
+      verifyUrl: "https://learn.microsoft.com/en-us/users/jashvaghasiya-4649/credentials/d944bfaa682ef208",
+      credentialId: "D944BFAA682EF208",
+      expires: "Jul 2025"
     },
     {
       name: "Databricks Certified Data Engineer Associate",
@@ -19,7 +21,8 @@ export default function CertificationsSection() {
       year: "2024",
       icon: SiDatabricks,
       color: "bg-red-600",
-      verifyUrl: "https://www.databricks.com/learn/certification/data-engineer-associate"
+      verifyUrl: "https://credentials.databricks.com/247a6732-00b6-41f1-986f-9aa0deb06dad",
+      expires: "Jul 2026"
     },
     {
       name: "Databricks Certified Data Engineer Professional",
@@ -27,7 +30,8 @@ export default function CertificationsSection() {
       year: "2024",
       icon: Award,
       color: "bg-orange-600",
-      verifyUrl: "https://www.databricks.com/learn/certification/data-engineer-professional"
+      verifyUrl: "https://credentials.databricks.com/1001cd75-9e1d-4340-ba0c-78332c105021#acc.OLoGDvFs",
+      expires: "Aug 2026"
     },
     {
       name: "Databricks Certified Associate Developer for Apache Spark 3.0",
@@ -35,7 +39,8 @@ export default function CertificationsSection() {
       year: "2024",
       icon: SiApachespark,
       color: "bg-emerald-600",
-      verifyUrl: "https://www.databricks.com/learn/certification/apache-spark-developer-associate"
+      verifyUrl: "https://credentials.databricks.com/71959e09-697b-4f64-8a15-ae7213dbf55c#acc.Mh67Y1rl",
+      expires: "No expiration"
     }
   ];
 
@@ -86,7 +91,11 @@ export default function CertificationsSection() {
                                 {cert.name}
                               </h3>
                               <p className="text-slate-600 mb-1">{cert.issuer}</p>
-                              <p className="text-slate-500 text-sm">{cert.year}</p>
+                              <p className="text-slate-500 text-sm">Issued {cert.year}</p>
+                              <p className="text-slate-500 text-sm">Expires: {cert.expires}</p>
+                              {cert.credentialId && (
+                                <p className="text-slate-400 text-xs mt-1">ID: {cert.credentialId}</p>
+                              )}
                             </div>
                             <ExternalLink className="h-4 w-4 text-slate-400 group-hover:text-blue-600 transition-colors flex-shrink-0 ml-2" />
                           </div>

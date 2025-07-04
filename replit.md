@@ -114,6 +114,9 @@ Changelog:
 - July 04, 2025. Centered continuous learning sections and updated copyright to Jash Vaghasiya
 - July 04, 2025. Improved contact form reliability with better error handling and fallback options
 - July 04, 2025. Completely redesigned skills section: removed Data Engineering category, implemented clean single-column layout with gray pill styling
+- July 04, 2025. Updated GitHub profile links throughout portfolio to correct URL (JashVaghasiya-DE)
+- July 04, 2025. Fixed project navigation by correcting project ID mismatches between sections and detail pages
+- July 04, 2025. Added actual credential verification links for all certifications with expiration dates and credential IDs
 ```
 
 ## User Preferences
