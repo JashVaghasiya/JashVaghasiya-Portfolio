@@ -4,24 +4,24 @@ import { Card, CardContent } from "@/components/ui/card";
 export default function ExperienceSection() {
   const experiences = [
     {
-      title: "Senior Data Engineer",
-      company: "TechCorp Inc.",
-      period: "2022 - Present",
-      description: "Led the development of real-time data pipelines processing 10TB+ daily. Implemented Apache Kafka and Spark for streaming analytics, reducing data latency by 80%.",
+      title: "Data Engineer",
+      company: "SpicyChat.AI",
+      period: "August 2024 - Present",
+      description: "Building enterprise-scale data pipelines processing 850K+ daily records using Azure Data Factory, Databricks, and Synapse Analytics, achieving 73% faster queries and 69% processing time reduction. Architecting real-time streaming solutions with Kafka and Spark, implementing comprehensive data lakehouse governance with Unity Catalog.",
       side: "left"
     },
     {
-      title: "Data Engineer",
-      company: "DataFlow Solutions",
-      period: "2020 - 2022",
-      description: "Built ETL pipelines using Python and SQL, processing customer data for machine learning models. Designed data warehouse architecture supporting 50+ analysts.",
+      title: "Data Developer – Co-op",
+      company: "SpicyChat.AI",
+      period: "May 2024 - August 2024",
+      description: "Developed and implemented RESTful web services and API integrations using Python and JavaScript to process 850K+ daily records. Translated business requirements into technical solutions by designing database schemas for both SQL and NoSQL systems, reducing sprint delivery time by 33% through Agile methodology.",
       side: "right"
     },
     {
-      title: "Junior Data Analyst",
-      company: "Analytics Pro",
-      period: "2018 - 2020",
-      description: "Developed automated reporting systems and performed statistical analysis on business metrics. Created interactive dashboards using Tableau and Power BI.",
+      title: "Data Engineer",
+      company: "Dione Apps",
+      period: "January 2021 - November 2022",
+      description: "Developed scalable data migration strategies using Azure Data Factory, PySpark, and Synapse Analytics to transfer terabytes of data with zero data loss. Designed end-to-end ETL pipelines optimizing workflows handling 100GB+ loads, achieving 80% reduction in operational issues and 60% reduction in manual interventions.",
       side: "left"
     }
   ];

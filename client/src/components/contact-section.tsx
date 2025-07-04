@@ -6,8 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { SiLinkedin, SiGithub, SiX, SiKaggle } from "react-icons/si";
 
@@ -29,37 +27,36 @@ export default function ContactSection() {
     message: ""
   });
 
-  const contactMutation = useMutation({
-    mutationFn: async (data: ContactFormData) => {
-      const response = await apiRequest("POST", "/api/contact", data);
-      return response.json();
-    },
-    onSuccess: (data) => {
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for your message. I'll get back to you soon.",
-      });
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        subject: "",
-        message: ""
-      });
-    },
-    onError: (error) => {
-      toast({
-        title: "Failed to send message",
-        description: "Please try again later or contact me directly via email.",
-        variant: "destructive",
-      });
-      console.error("Contact form error:", error);
-    },
-  });
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    contactMutation.mutate(formData);
+    
+    // Create mailto link with form data
+    const subject = encodeURIComponent(formData.subject || "Portfolio Contact");
+    const body = encodeURIComponent(
+      `Hi Jash,\n\n` +
+      `Name: ${formData.firstName} ${formData.lastName}\n` +
+      `Email: ${formData.email}\n\n` +
+      `Message:\n${formData.message}`
+    );
+    
+    const mailtoLink = `mailto:jashmukeshvaghasiya@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    toast({
+      title: "Email client opened!",
+      description: "Your default email application should open with the message pre-filled.",
+    });
+    
+    // Reset form
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      subject: "",
+      message: ""
+    });
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -71,19 +68,19 @@ export default function ContactSection() {
     {
       icon: Mail,
       label: "Email",
-      value: "alex.chen@email.com",
+      value: "jashmukeshvaghasiya@gmail.com",
       color: "bg-blue-600"
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+1 (555) 123-4567",
+      value: "+1 (437) 436-3011",
       color: "bg-emerald-600"
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "San Francisco, CA",
+      value: "Canada",
       color: "bg-purple-600"
     }
   ];
@@ -91,22 +88,17 @@ export default function ContactSection() {
   const socialLinks = [
     {
       icon: SiLinkedin,
-      href: "https://linkedin.com/in/alexchen",
+      href: "https://www.linkedin.com/in/jash-vaghasiya",
       color: "hover:bg-blue-600"
     },
     {
       icon: SiGithub,
-      href: "https://github.com/alexchen",
+      href: "https://github.com/JashVaghasiya",
       color: "hover:bg-slate-900"
     },
     {
-      icon: SiX,
-      href: "https://x.com/alexchen",
-      color: "hover:bg-slate-800"
-    },
-    {
       icon: SiKaggle,
-      href: "https://kaggle.com/alexchen",
+      href: "https://kaggle.com/jashvaghasiya",
       color: "hover:bg-orange-600"
     }
   ];
@@ -270,17 +262,12 @@ export default function ContactSection() {
                   
                   <Button
                     type="submit"
-                    disabled={contactMutation.isPending}
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
                   >
-                    {contactMutation.isPending ? (
-                      "Sending..."
-                    ) : (
-                      <>
-                        Send Message
-                        <Send className="ml-2 h-4 w-4" />
-                      </>
-                    )}
+                    <>
+                      Send Message
+                      <Send className="ml-2 h-4 w-4" />
+                    </>
                   </Button>
                 </form>
               </CardContent>

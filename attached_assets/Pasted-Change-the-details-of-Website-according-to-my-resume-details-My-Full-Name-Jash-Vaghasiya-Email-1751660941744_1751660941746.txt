@@ -1,0 +1,121 @@
+Change the details of Website according to my resume details 
+
+My Full Name: Jash Vaghasiya
+Email: jashmukeshvaghasiya@gmail.com
+Phone: +1 4374363011
+Location: Canada
+LinkedIn: https://www.linkedin.com/in/jash-vaghasiya
+Github: https://github.com/JashVaghasiya/
+
+Experience
+
+Data Engineer (August 2024 - Present)
+SpicyChat.AI – Canada
+This senior data engineering role involved building enterprise-scale data pipelines processing 850K+ daily records using Azure Data Factory, Databricks, and Synapse Analytics, achieving 73% faster queries and 69% processing time reduction. The position encompassed architecting real-time streaming solutions with Kafka and Spark, implementing comprehensive data lakehouse governance with Unity Catalog, and orchestrating end-to-end ML lifecycle management. Key achievements included 35% infrastructure cost optimization, 60% reduction in system downtime with 99.8% SLA compliance, and 95% deployment success rates through DevOps best practices using CI/CD pipelines and Terraform, ultimately delivering actionable business intelligence that enabled data-driven cost-saving decisions.
+
+Data Developer – Co-op (May 2024 - August 2024)
+SpicyChat.AI – Canada
+This co-op position focused on developing and implementing RESTful web services and API integrations using Python and JavaScript to process 850K+ daily records across multiple platforms. The role involved translating business requirements into technical solutions by designing database schemas for both SQL and NoSQL systems, while managing concurrent projects using Agile methodology that reduced sprint delivery time by 33%. Key contributions included leveraging Spark clusters for statistical analysis with 73% workflow optimization, implementing data governance frameworks that reduced manual curation by 48%, and collaborating with cross-functional teams to deliver customer behavior dashboards through Power BI visualizations and automated reporting.
+
+Data Engineer (January 2021 - November 2022)
+Dione Apps – India 
+This role involved developing scalable data migration strategies using Azure Data Factory, PySpark, and Synapse Analytics to transfer terabytes of data with zero data loss. The position focused on designing end-to-end ETL pipelines, optimizing workflows handling 100GB+ loads, and implementing SCD logic for historical tracking. Key achievements included 80% reduction in operational issues through proactive monitoring with Azure Monitor, 60% reduction in manual interventions via CI/CD automation, and 100% project success rates through strategic stakeholder collaboration and requirements alignment.
+
+Project Description
+GCP to Azure Migration & Governance Platform
+Enterprise-scale automated data pipeline solution enabling seamless migration, processing, and governance of large-scale datasets between Google Cloud Platform and Microsoft Azure with zero data loss and comprehensive security controls.
+Tech Stack: Azure, GCP, PySpark, SQL, Databricks
+
+Real-Time Streaming and Automated Deployments
+Enterprise-scale cloud-native data platform leveraging Infrastructure-as-Code, real-time streaming, and automated CI/CD deployments to deliver scalable, reliable, and high-performance data engineering solutions on Microsoft Azure.
+Tech Stack: Azure, Kafka, PySpark, Databricks, DLT
+
+Data Warehousing And Analytics Platform
+Comprehensive end-to-end data analytics platform processing 15+ years of LAPD crime and arrest data using Azure cloud services, implementing medallion architecture and FBI NIBRS compliance standards to deliver actionable public safety insights through advanced data warehousing and visualization capabilities.
+Azure, Power BI, AIrflow, Spark, SQL
+
+
+Skills
+	Data Engineering: ETL/ELT Pipelines, Data Warehousing, Data Modeling (Star & Snowflake Schema), Data Governance
+	Cloud & Data Platforms: Azure Data Factory, Power BI, Azure Synapse Analytics, Azure Data Lake, Databricks, AWS Redshift, Lambda, BigQuery, Snowflake
+	Databases: Microsoft SQL Server, PostgreSQL, MySQL, NoSQL (MongoDB, CosmosDB)
+	Programming: Python, JavaScript, SQL, T-SQL, PL-SQL, PySpark, Scala, Bash, PowerShell
+	Big Data Technologies: Apache Spark, Hadoop, Hive, Kafka
+	Workflow & DevOps: Apache Airflow, Azure DevOps, Git, Docker, Kubernetes, Terraform
+	Monitoring & Security: Azure Monitor, Datadog, Prometheus, RBAC, Unity Catalog, Data Encryption
+Add Airflow, Other Data Related Technologies, Pandas, JavaScript and Java , Scala, Spark, AWS Glue, AWS S3, Google Storage
+
+
+
+Certification
+
+Microsoft Certified: Azure Data Engineer Associate
+Issued Jul 2024 · Expired Jul 2025
+Credential ID D944BFAA682EF208
+Link: https://learn.microsoft.com/en-us/users/jashvaghasiya-4649/credentials/d944bfaa682ef208
+Skills / Knowledge
+ Data Management · Data Security · Secure, monitor, and optimize data storage and data processing · Design and implement data storage · Microsoft Azure · Azure Synapse · Data Pipeline Development · Develop data processing
+
+Databricks Certified Data Engineer Associate
+Skills / Knowledge
+Apache Spark
+Delta Lake
+Databricks
+Lakehouse
+Delta Live Tables
+Data Pipelines
+ETL
+Production
+SQL
+Python
+Issued on
+July 2, 2024
+Expires on
+July 2, 2026
+https://credentials.databricks.com/247a6732-00b6-41f1-986f-9aa0deb06dad
+
+Databricks Certified Data Engineer Professional
+Skills / Knowledge
+Apache spark
+Delta lake
+Data pipelines
+ETL
+Lakehouse
+Data modeling
+Production
+Alerting
+Deployment
+Testing
+Security
+Issued on
+August 8, 2024
+Expires on
+August 8, 2026
+https://credentials.databricks.com/1001cd75-9e1d-4340-ba0c-78332c105021#acc.OLoGDvFs
+
+Databricks Certified Associate Developer for Apache Spark 3.0
+Skills / Knowledge
+Spark architecture
+Spark SQL functions
+UDFs
+DataFrames
+Adaptive query execution
+Python
+Scala
+Issued on
+August 21, 2024
+Expires on
+Does not expire
+https://credentials.databricks.com/71959e09-697b-4f64-8a15-ae7213dbf55c#acc.Mh67Y1rl
+
+
+Education
+Lambton College
+Postgraduate Certification, Artificial Intelligence and Machine Learning
+Jan 2023 - Aug 2024Jan 2023 - Aug 2024 GPA: 3.39/4
+
+Veer Narmad South Gujarat University, Surat
+B.C.A. (Bachelor of Computer Application), Computer Programming, Specific Applications
+Jul 2017 - Jul 2021 CGPA: 8.89/10
+
+Remove Continuous Learning Section's Conference Speaker and Publications
