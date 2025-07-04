@@ -2,13 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Airflow-inspired logo cursor */
+/* Apache Airflow rotating logo cursor */
+@keyframes rotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCounterClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
 * {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg%3E%3Ccircle cx='12' cy='12' r='10' fill='%2317a2b8' stroke='%23ffffff' stroke-width='1.5'/%3E%3Cpath d='M7 12 L9 10 L11 12 L9 14 Z' fill='%23ffffff'/%3E%3Cpath d='M13 12 L15 10 L17 12 L15 14 Z' fill='%23ffffff'/%3E%3Cpath d='M12 7 L14 9 L12 11 L10 9 Z' fill='%23ffffff'/%3E%3Cpath d='M12 13 L14 15 L12 17 L10 15 Z' fill='%23ffffff'/%3E%3Ccircle cx='12' cy='12' r='2' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E") 12 12, auto;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cg%3E%3Ccircle cx='13' cy='13' r='11' fill='%2317a2b8' stroke='%23ffffff' stroke-width='1'/%3E%3Cg transform='translate(13,13)'%3E%3Cpath d='M-6,-1 L-3,-4 L0,-1 L-3,2 Z' fill='%23ffffff'/%3E%3Cpath d='M1,-6 L4,-3 L1,0 L-2,-3 Z' fill='%23ffffff'/%3E%3Cpath d='M6,-1 L3,-4 L0,-1 L3,2 Z' fill='%23ffffff'/%3E%3Cpath d='M1,6 L4,3 L1,0 L-2,3 Z' fill='%23ffffff'/%3E%3Cpath d='M-1,6 L-4,3 L-1,0 L2,3 Z' fill='%23ffffff'/%3E%3Cpath d='M-1,-6 L-4,-3 L-1,0 L2,-3 Z' fill='%23ffffff'/%3E%3Ccircle cx='0' cy='0' r='1.5' fill='%23ffffff'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") 13 13, auto;
 }
 
 button, a, [role="button"] {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg%3E%3Ccircle cx='12' cy='12' r='10' fill='%23f59e0b' stroke='%23ffffff' stroke-width='1.5'/%3E%3Cpath d='M7 12 L9 10 L11 12 L9 14 Z' fill='%23ffffff'/%3E%3Cpath d='M13 12 L15 10 L17 12 L15 14 Z' fill='%23ffffff'/%3E%3Cpath d='M12 7 L14 9 L12 11 L10 9 Z' fill='%23ffffff'/%3E%3Cpath d='M12 13 L14 15 L12 17 L10 15 Z' fill='%23ffffff'/%3E%3Ccircle cx='12' cy='12' r='2' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E") 12 12, pointer;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cg%3E%3Ccircle cx='13' cy='13' r='11' fill='%23f59e0b' stroke='%23ffffff' stroke-width='1'/%3E%3Cg transform='translate(13,13)'%3E%3Cpath d='M-6,-1 L-3,-4 L0,-1 L-3,2 Z' fill='%23ffffff'/%3E%3Cpath d='M1,-6 L4,-3 L1,0 L-2,-3 Z' fill='%23ffffff'/%3E%3Cpath d='M6,-1 L3,-4 L0,-1 L3,2 Z' fill='%23ffffff'/%3E%3Cpath d='M1,6 L4,3 L1,0 L-2,3 Z' fill='%23ffffff'/%3E%3Cpath d='M-1,6 L-4,3 L-1,0 L2,3 Z' fill='%23ffffff'/%3E%3Cpath d='M-1,-6 L-4,-3 L-1,0 L2,-3 Z' fill='%23ffffff'/%3E%3Ccircle cx='0' cy='0' r='1.5' fill='%23ffffff'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") 13 13, pointer;
+}
+
+/* Add rotating border effect around cursor */
+body::before {
+  content: '';
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(23, 162, 184, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: rotateClockwise 4s linear infinite;
+  transform: translate(-15px, -15px);
+}
+
+body:hover::before {
+  border-color: rgba(245, 158, 11, 0.5);
+  animation: rotateCounterClockwise 3s linear infinite;
 }
 
 /* Ensure body has proper spacing for fixed header */
