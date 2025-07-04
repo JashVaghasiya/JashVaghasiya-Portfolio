@@ -99,8 +99,15 @@ export default function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 bg-slate-800 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-20 w-20 h-20 bg-blue-500 rounded-full blur-2xl animate-float"></div>
+        <div className="absolute bottom-32 right-20 w-16 h-16 bg-emerald-500 rounded-full blur-2xl animate-float" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-purple-500 rounded-full blur-xl animate-float" style={{ animationDelay: '3s' }}></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

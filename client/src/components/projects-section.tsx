@@ -69,13 +69,14 @@ export default function ProjectsSection() {
               className="transition-all duration-300"
             >
               <Link href={`/project/${project.id}`}>
-                <Card className="bg-white shadow-md hover:shadow-xl transition-all duration-300 h-full cursor-pointer">
-                  <div className="aspect-video overflow-hidden rounded-t-lg">
+                <Card className="bg-white shadow-md hover:shadow-2xl transition-all duration-300 h-full cursor-pointer group overflow-hidden">
+                  <div className="aspect-video overflow-hidden rounded-t-lg relative">
                     <img 
                       src={project.image} 
                       alt={project.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     />
+                    <div className="absolute inset-0 bg-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                   <CardContent className="p-6 flex flex-col flex-grow">
                     <h3 className="text-xl font-semibold text-slate-800 mb-2">
