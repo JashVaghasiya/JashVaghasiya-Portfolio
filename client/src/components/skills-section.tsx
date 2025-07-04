@@ -8,50 +8,50 @@ export default function SkillsSection() {
     {
       title: "Data Engineering",
       icon: Database,
-      color: "text-blue-600",
-      bgColor: "bg-blue-50",
-      skills: ["ETL/ELT Pipelines", "Data Warehousing", "Data Modeling (Star & Snowflake Schema)", "Data Governance"]
+      color: "text-slate-700",
+      bgColor: "bg-slate-50",
+      skills: ["Data Warehousing", "Data Modeling (Star & Snowflake Schema)", "Data Governance"]
     },
     {
       title: "Cloud & Data Platforms",
       icon: Cloud,
-      color: "text-emerald-600",
-      bgColor: "bg-emerald-50",
+      color: "text-slate-700",
+      bgColor: "bg-slate-50",
       skills: ["Azure Data Factory", "Power BI", "Azure Synapse Analytics", "Azure Data Lake", "Databricks", "AWS Redshift", "Lambda", "BigQuery", "Snowflake"]
     },
     {
       title: "Databases",
       icon: Server,
-      color: "text-purple-600",
-      bgColor: "bg-purple-50",
+      color: "text-slate-700",
+      bgColor: "bg-slate-50",
       skills: ["Microsoft SQL Server", "PostgreSQL", "MySQL", "NoSQL (MongoDB, CosmosDB)"]
     },
     {
       title: "Programming",
       icon: Code,
-      color: "text-orange-600",
-      bgColor: "bg-orange-50",
+      color: "text-slate-700",
+      bgColor: "bg-slate-50",
       skills: ["Python", "JavaScript", "SQL", "T-SQL", "PL-SQL", "PySpark", "Scala", "Bash", "PowerShell"]
     },
     {
       title: "Big Data Technologies",
       icon: BarChart3,
-      color: "text-red-600",
-      bgColor: "bg-red-50",
+      color: "text-slate-700",
+      bgColor: "bg-slate-50",
       skills: ["Apache Spark", "Hadoop", "Hive", "Kafka"]
     },
     {
       title: "Workflow & DevOps",
       icon: Cog,
-      color: "text-indigo-600",
-      bgColor: "bg-indigo-50",
+      color: "text-slate-700",
+      bgColor: "bg-slate-50",
       skills: ["Apache Airflow", "Azure DevOps", "Git", "Docker", "Kubernetes", "Terraform"]
     },
     {
       title: "Monitoring & Security",
       icon: Shield,
-      color: "text-cyan-600",
-      bgColor: "bg-cyan-50",
+      color: "text-slate-700",
+      bgColor: "bg-slate-50",
       skills: ["Azure Monitor", "Datadog", "Prometheus", "RBAC", "Unity Catalog", "Data Encryption"]
     }
   ];
@@ -83,10 +83,10 @@ export default function SkillsSection() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className={`${category.bgColor} border-l-4 border-l-current hover:shadow-lg transition-all duration-300`}>
+                <Card className={`${category.bgColor} border border-slate-200 hover:shadow-md transition-all duration-300`}>
                   <CardContent className="p-6">
                     <div className="flex items-center mb-4">
-                      <div className={`w-10 h-10 rounded-lg bg-white flex items-center justify-center mr-4`}>
+                      <div className={`w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center mr-4`}>
                         <IconComponent className={`h-6 w-6 ${category.color}`} />
                       </div>
                       <h3 className={`text-xl font-semibold ${category.color}`}>
@@ -98,7 +98,7 @@ export default function SkillsSection() {
                         <Badge
                           key={skillIndex}
                           variant="secondary"
-                          className="bg-white/80 text-slate-700 hover:bg-white transition-colors"
+                          className="bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors"
                         >
                           {skill}
                         </Badge>
