@@ -3,8 +3,10 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ExternalLink, Github, Calendar, Users, Target } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Calendar, Users, Target, X, ZoomIn } from "lucide-react";
 import { Link } from "wouter";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useState } from "react";
 
 const projectsData = {
   "gcp-azure-migration": {
@@ -12,8 +14,8 @@ const projectsData = {
     subtitle: "Enterprise-scale automated data pipeline solution enabling seamless migration, processing, and governance of large-scale datasets between Google Cloud Platform and Microsoft Azure with zero data loss and comprehensive security controls",
     description: "This project involves building large-scale data pipelines to migrate, process, and govern data between Google Cloud and Azure. The solution implements a comprehensive three-layer architecture (landing, raw, intermediate, curated) with robust security, logging, and automated governance controls. The system handles both dimensional and fact tables with full-load and delta-load capabilities, ensuring data integrity and optimal performance through watermark column implementation.",
     technologies: ["Azure Data Factory", "Databricks", "PySpark", "SQL", "Unity Catalog", "Azure Active Directory", "Google Cloud Storage", "Azure Blob Storage", "ADLS", "Key Vault", "Logic Apps"],
-    duration: "12 months", 
-    team: "8 engineers + 2 cloud architects",
+    duration: "1 month", 
+    team: "1 engineer and 1 cloud architect",
     impact: "Zero data loss migration, 100% automation, enterprise-grade security compliance",
     highlights: [
       "Zero Data Loss Migration: Achieved seamless transfer of terabytes of data with comprehensive validation and monitoring",
@@ -43,32 +45,32 @@ const projectsData = {
     },
     images: [
       {
-        url: "/attached_assets/architecture_1751664339599.jpg",
+        url: "/api/assets/architecture_1751664339599.jpg",
         caption: "Complete ETL Architecture - GCP to Azure Migration with Delta Lake layers",
         type: "architecture"
       },
       {
-        url: "/attached_assets/for_each_loop_1751664339602.png", 
+        url: "/api/assets/for_each_loop_1751664339602.png", 
         caption: "Azure Data Factory ForEach Loop Implementation for dynamic pipeline processing",
         type: "pipeline"
       },
       {
-        url: "/attached_assets/intermediate_to_curated_1751664339604.png",
+        url: "/api/assets/intermediate_to_curated_1751664339604.png",
         caption: "Intermediate to Curated Layer Data Processing with metadata lookup",
         type: "processing"
       },
       {
-        url: "/attached_assets/landing_to_raw_1751664339606.png",
+        url: "/api/assets/landing_to_raw_1751664339606.png",
         caption: "Landing to Raw Layer Processing with success/failure handling",
         type: "processing"
       },
       {
-        url: "/attached_assets/raw_to_intermediate_1751664339607.png",
+        url: "/api/assets/raw_to_intermediate_1751664339607.png",
         caption: "Raw to Intermediate Layer Processing Pipeline",
         type: "processing"
       },
       {
-        url: "/attached_assets/Screenshot 2024-10-17 160144_1751664339608.png",
+        url: "/api/assets/Screenshot%202024-10-17%20160144_1751664339608.png",
         caption: "Azure Data Factory Pipeline Parameters and Monitoring Dashboard",
         type: "dashboard"
       }
@@ -398,6 +400,7 @@ const projectsData = {
 export default function ProjectDetail() {
   const params = useParams();
   const projectId = params.id;
+  const [selectedImage, setSelectedImage] = useState<{url: string, caption: string} | null>(null);
   
   if (!projectId || !projectsData[projectId as keyof typeof projectsData]) {
     return (
@@ -483,13 +486,19 @@ export default function ProjectDetail() {
           <h2 className="text-2xl font-bold text-slate-800 mb-8">Project Visuals</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {project.images.map((image, index) => (
-              <Card key={index} className="bg-white overflow-hidden">
-                <div className="aspect-video">
+              <Card key={index} className="bg-white overflow-hidden cursor-pointer hover:shadow-lg transition-shadow group">
+                <div 
+                  className="aspect-video relative overflow-hidden"
+                  onClick={() => setSelectedImage({url: image.url, caption: image.caption})}
+                >
                   <img 
                     src={image.url} 
                     alt={image.caption}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                    <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 h-8 w-8" />
+                  </div>
                 </div>
                 <CardContent className="p-4">
                   <p className="text-slate-700 font-medium">{image.caption}</p>
@@ -501,14 +510,7 @@ export default function ProjectDetail() {
             ))}
           </div>
           
-          <div className="mt-8 p-6 bg-blue-50 rounded-lg border border-blue-200">
-            <p className="text-blue-800 font-medium mb-2">📸 Custom Project Assets</p>
-            <p className="text-blue-700">
-              You can replace these placeholder images with your actual pipeline diagrams, 
-              data models, and project screenshots. The images above are temporary placeholders 
-              to demonstrate the layout structure.
-            </p>
-          </div>
+
         </motion.section>
 
         {/* Key Highlights & Architecture */}
@@ -542,11 +544,11 @@ export default function ProjectDetail() {
               <CardContent className="p-8">
                 <h3 className="text-xl font-bold text-slate-800 mb-6">Architecture</h3>
                 <p className="text-slate-700 mb-4">{project.architecture.description}</p>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {project.architecture.components.map((component, index) => (
                     <li key={index} className="flex items-start">
                       <div className="w-2 h-2 bg-emerald-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      <span className="text-slate-700 text-sm">{component}</span>
+                      <span className="text-slate-700 leading-relaxed">{component}</span>
                     </li>
                   ))}
                 </ul>
@@ -640,6 +642,28 @@ export default function ProjectDetail() {
           </div>
         </motion.section>
       </div>
+
+      {/* Image Zoom Modal */}
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-6xl max-h-[90vh] p-0 overflow-hidden">
+          <DialogHeader className="p-6 pb-0">
+            <DialogTitle className="text-lg font-semibold">
+              {selectedImage?.caption}
+            </DialogTitle>
+          </DialogHeader>
+          <div className="p-6 pt-4">
+            {selectedImage && (
+              <div className="w-full flex justify-center">
+                <img 
+                  src={selectedImage.url} 
+                  alt={selectedImage.caption}
+                  className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-lg"
+                />
+              </div>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
