@@ -1,139 +1,245 @@
 import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Database, Cloud, Code, Cog, Shield, BarChart3, Server } from "lucide-react";
+import ArchitectureLayer, { LayerData } from "./visualizations/ArchitectureLayer";
+import { FlowConnector } from "./visualizations/FlowingParticle";
 
 export default function SkillsSection() {
-  const skillCategories = [
+  const architectureLayers: LayerData[] = [
     {
-      title: "Cloud & Data Platforms",
-      icon: Cloud,
-      color: "text-slate-800",
-      skills: ["Azure Data Factory", "Power BI", "Azure Synapse Analytics", "Azure Data Lake", "Databricks", "AWS Redshift", "Lambda", "BigQuery", "Snowflake"]
+      name: "Orchestration Layer",
+      type: "orchestration",
+      technologies: ["Apache Airflow", "Azure Data Factory", "Synapse Pipelines", "Azure DevOps"],
+      description: "Workflow scheduling and pipeline orchestration",
     },
     {
-      title: "Databases",
-      icon: Server,
-      color: "text-slate-800",
-      skills: ["Microsoft SQL Server", "PostgreSQL", "MySQL", "NoSQL (MongoDB, CosmosDB)"]
+      name: "Streaming Layer",
+      type: "source",
+      technologies: ["Apache Kafka", "Event Hubs", "Spark Streaming", "Change Data Capture"],
+      description: "Real-time data ingestion and streaming",
     },
     {
-      title: "Programming",
-      icon: Code,
-      color: "text-slate-800",
-      skills: ["Python", "JavaScript", "SQL", "T-SQL", "PL-SQL", "PySpark", "Scala", "Bash", "PowerShell"]
+      name: "Storage Layer",
+      type: "storage",
+      technologies: ["ADLS Gen2", "Snowflake", "Delta Lake", "SQL Server", "PostgreSQL", "MongoDB", "CosmosDB"],
+      description: "Data lakes, warehouses, and operational databases",
     },
     {
-      title: "Big Data Technologies",
-      icon: BarChart3,
-      color: "text-slate-800",
-      skills: ["Apache Spark", "Hadoop", "Hive", "Kafka"]
+      name: "Processing Layer",
+      type: "process",
+      technologies: ["Apache Spark", "PySpark", "Scala", "Delta Live Tables"],
+      description: "Batch and stream processing at scale",
     },
     {
-      title: "Workflow & DevOps",
-      icon: Cog,
-      color: "text-slate-800",
-      skills: ["Apache Airflow", "Azure DevOps", "Git", "Docker", "Kubernetes", "Terraform"]
+      name: "Analytics Layer",
+      type: "process",
+      technologies: ["Azure Synapse", "Databricks SQL", "BigQuery", "Redshift"],
+      description: "Data warehousing and analytical queries",
     },
     {
-      title: "Monitoring & Security",
-      icon: Shield,
-      color: "text-slate-800",
-      skills: ["Azure Monitor", "Datadog", "Prometheus", "RBAC", "Unity Catalog", "Data Encryption"]
-    }
+      name: "Visualization Layer",
+      type: "analytics",
+      technologies: ["Power BI", "Tableau", "Plotly", "SQL Analytics"],
+      description: "Business intelligence, dashboards, and reporting",
+    },
+  ];
+
+  // Side flow diagram showing data through the stack
+  const dataFlowSteps = [
+    { label: "Ingest", color: "#10b981", desc: "Raw data streams in" },
+    { label: "Store", color: "#8b5cf6", desc: "Persist to data lake" },
+    { label: "Process", color: "#3b82f6", desc: "Transform & enrich" },
+    { label: "Analyze", color: "#06b6d4", desc: "Query & aggregate" },
+    { label: "Visualize", color: "#f97316", desc: "Dashboards & reports" },
+  ];
+
+  // Programming languages and tools
+  const coreSkills = [
+    { name: "Python", proficiency: 95, color: "#3776AB" },
+    { name: "SQL / T-SQL", proficiency: 95, color: "#4479A1" },
+    { name: "PySpark", proficiency: 90, color: "#E25A1C" },
+    { name: "Scala", proficiency: 75, color: "#DC322F" },
+    { name: "JavaScript", proficiency: 70, color: "#F7DF1E" },
+    { name: "Bash / PowerShell", proficiency: 80, color: "#4EAA25" },
+  ];
+
+  // DevOps / Infra
+  const devopsTools = [
+    { name: "Docker", color: "#2496ED" },
+    { name: "Kubernetes", color: "#326CE5" },
+    { name: "Terraform", color: "#7B42BC" },
+    { name: "Git", color: "#F05032" },
+    { name: "Azure DevOps", color: "#0078D4" },
+    { name: "Unity Catalog", color: "#FF3621" },
+    { name: "RBAC", color: "#22d3ee" },
+    { name: "Azure Monitor", color: "#0078D4" },
+    { name: "Datadog", color: "#632CA6" },
+    { name: "Prometheus", color: "#E6522C" },
   ];
 
   return (
-    <section id="skills" className="py-20 bg-white relative overflow-hidden">
-      {/* Subtle background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-24 h-24 bg-purple-500 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-emerald-500 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
+    <section id="skills" className="py-24 bg-white dark:bg-data-dark-900">
+      {/* Blueprint grid background */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `linear-gradient(rgba(59,130,246,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.5) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
       </div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+      <div className="max-w-6xl mx-auto px-6 relative">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-bold text-slate-800 mb-4">Technical Skills</h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Comprehensive expertise across the modern data engineering technology stack
+          <h2 className="text-5xl font-bold font-pixel text-gray-900 dark:text-white mb-2">
+            Data Architecture & Technologies
+          </h2>
+          <p className="text-xl font-retro text-gray-500 dark:text-gray-400 mb-12 max-w-2xl">
+            Comprehensive expertise across the modern data engineering stack, organized by architectural layer.
           </p>
         </motion.div>
-        
-        <div className="space-y-8">
-          {skillCategories.map((category, index) => {
-            const IconComponent = category.icon;
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50, rotateX: -15 }}
-                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{ 
-                  duration: 0.8, 
-                  delay: index * 0.15,
-                  type: "spring",
-                  stiffness: 100
-                }}
-                viewport={{ once: true }}
-                whileHover={{ 
-                  y: -8, 
-                  scale: 1.02,
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
-                  borderColor: "rgb(59 130 246)"
-                }}
-                className="bg-gradient-to-br from-white to-slate-50 rounded-xl border border-slate-200 transition-all duration-500 p-6 relative overflow-hidden group"
-              >
-                {/* Hover effect overlay */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-emerald-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ scale: 0.8 }}
-                  whileHover={{ scale: 1 }}
-                />
-                
-                <div className="flex items-center mb-4 relative z-10">
-                  <motion.div
-                    whileHover={{ rotate: 360, scale: 1.2 }}
-                    transition={{ duration: 0.5 }}
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Main architecture diagram - takes 2 columns */}
+          <div className="lg:col-span-2">
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-gray-50/80 dark:bg-data-dark-800/30 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-6 h-full shadow-sm dark:shadow-none"
+            >
+              <div className="flex items-center justify-between mb-5 flex-wrap gap-2">
+                <span className="text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+                  Data Stack Architecture
+                </span>
+                <span className="text-xs font-retro text-pipeline-cyan whitespace-nowrap">
+                  6 LAYERS | 30+ TECHNOLOGIES
+                </span>
+              </div>
+
+              <ArchitectureLayer layers={architectureLayers} />
+            </motion.div>
+          </div>
+
+          {/* Side panel: Data Flow Diagram */}
+          <div className="space-y-6">
+            {/* Vertical data flow */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-gray-50/80 dark:bg-data-dark-800/30 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-5 h-fit shadow-sm dark:shadow-none"
+            >
+              <span className="text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider block mb-4">
+                Data Flow Path
+              </span>
+              <div className="space-y-0">
+                {dataFlowSteps.map((step, index) => (
+                  <div key={index}>
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="w-8 h-8 rounded-lg flex items-center justify-center text-[10px] font-mono font-bold flex-shrink-0 border"
+                        style={{
+                          backgroundColor: step.color + "15",
+                          borderColor: step.color + "30",
+                          color: step.color,
+                        }}
+                      >
+                        {index + 1}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="text-base font-retro font-semibold truncate" style={{ color: step.color }}>
+                          {step.label}
+                        </div>
+                        <div className="text-sm text-gray-400 dark:text-gray-500 font-retro truncate">{step.desc}</div>
+                      </div>
+                    </div>
+                    {index < dataFlowSteps.length - 1 && (
+                      <div className="flex justify-center my-1" style={{ marginLeft: "16px" }}>
+                        <FlowConnector
+                          color={step.color}
+                          width={24}
+                          direction="vertical"
+                          particleCount={1}
+                          animated={true}
+                        />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* DevOps & Governance Tools */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-gray-50/80 dark:bg-data-dark-800/30 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-5 h-fit shadow-sm dark:shadow-none"
+            >
+              <span className="text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider block mb-3">
+                DevOps & Governance
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                {devopsTools.map((tool) => (
+                  <span
+                    key={tool.name}
+                    className="text-sm font-retro px-2 py-1 rounded border whitespace-nowrap"
+                    style={{
+                      color: tool.color,
+                      borderColor: tool.color + "25",
+                      backgroundColor: tool.color + "08",
+                    }}
                   >
-                    <IconComponent className={`h-5 w-5 ${category.color} mr-3`} />
-                  </motion.div>
-                  <h3 className={`text-lg font-semibold ${category.color}`}>
-                    {category.title}
-                  </h3>
-                </div>
-                <div className="flex flex-wrap gap-2 relative z-10">
-                  {category.skills.map((skill, skillIndex) => (
-                    <motion.span
-                      key={skillIndex}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ 
-                        delay: skillIndex * 0.05 + index * 0.1,
-                        type: "spring",
-                        stiffness: 200
-                      }}
-                      whileHover={{ 
-                        scale: 1.1, 
-                        backgroundColor: "rgb(59 130 246)",
-                        color: "white",
-                        y: -2
-                      }}
-                      className="px-3 py-1 text-sm bg-slate-100 text-slate-700 rounded-md cursor-default transition-all duration-200"
-                    >
-                      {skill}
-                    </motion.span>
-                  ))}
-                </div>
-              </motion.div>
-            );
-          })}
+                    {tool.name}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
+
+        {/* Programming Languages - Proficiency Bars */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-8 bg-gray-50/80 dark:bg-data-dark-800/30 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-6 shadow-sm dark:shadow-none"
+        >
+          <span className="text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider block mb-5">
+            Programming Languages & Proficiency
+          </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+            {coreSkills.map((skill, index) => (
+              <div key={skill.name} className="flex items-center gap-3 min-w-0">
+                <span className="text-lg font-retro text-gray-500 dark:text-gray-400 w-32 flex-shrink-0 truncate" title={skill.name}>
+                  {skill.name}
+                </span>
+                <div className="flex-1 h-2 bg-gray-200 dark:bg-data-dark-700 rounded-full overflow-hidden min-w-0">
+                  <motion.div
+                    className="h-full rounded-full"
+                    style={{ backgroundColor: skill.color }}
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${skill.proficiency}%` }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: index * 0.1 }}
+                  />
+                </div>
+                <span className="text-base font-retro text-gray-400 dark:text-gray-500 w-9 text-right flex-shrink-0">
+                  {skill.proficiency}%
+                </span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

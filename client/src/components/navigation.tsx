@@ -1,26 +1,18 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, Sun, Moon } from "lucide-react";
+import { useTheme } from "@/contexts/theme-context";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isOpen, setIsOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      setIsScrolled(scrollY > 100);
+      setIsScrolled(window.scrollY > 50);
 
-      // Calculate scroll progress
-      const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = Math.min((scrollY / windowHeight) * 100, 100);
-      setScrollProgress(progress);
-
-      // Update active section based on scroll position
       const sections = ["home", "experience", "projects", "skills", "certifications", "education", "contact"];
       const current = sections.find(section => {
         const element = document.getElementById(section);
@@ -30,7 +22,7 @@ export default function Navigation() {
         }
         return false;
       });
-      
+
       if (current) {
         setActiveSection(current);
       }
@@ -43,11 +35,8 @@ export default function Navigation() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offsetTop = element.offsetTop - 80;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth"
-      });
+      const offsetTop = element.offsetTop - 72;
+      window.scrollTo({ top: offsetTop, behavior: "smooth" });
     }
     setIsOpen(false);
   };
@@ -58,160 +47,131 @@ export default function Navigation() {
     { id: "projects", label: "Projects" },
     { id: "skills", label: "Skills" },
     { id: "certifications", label: "Certifications" },
-    { id: "education", label: "Education" }
+    { id: "education", label: "Education" },
+    { id: "contact", label: "Contact" },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 overflow-hidden ${
-      isScrolled 
-        ? "bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-2xl h-16" 
-        : "bg-gradient-to-r from-slate-900/95 via-blue-900/95 to-slate-900/95 backdrop-blur-xl border-b border-white/20 h-20"
-    }`}>
-      {/* Animated background pattern */}
-      <div className={`absolute inset-0 opacity-10 ${isScrolled ? 'hidden' : 'block'}`}>
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            radial-gradient(circle at 20% 50%, rgba(255,255,255,0.2) 1px, transparent 1px),
-            radial-gradient(circle at 80% 50%, rgba(255,255,255,0.2) 1px, transparent 1px)
-          `,
-          backgroundSize: '30px 30px',
-          animation: 'float 4s ease-in-out infinite'
-        }}></div>
-      </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`flex justify-between items-center transition-all duration-500 ${
-          isScrolled ? "h-16" : "h-20"
-        }`}>
-          <motion.div 
-            className="flex-shrink-0 transform transition-all duration-300 hover:scale-105"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? "bg-white/80 dark:bg-data-dark-950/70 backdrop-blur-3xl shadow-lg shadow-black/5 dark:shadow-black/20 border-b border-gray-200/50 dark:border-pipeline-blue/15"
+          : "bg-white/40 dark:bg-data-dark-950/30 backdrop-blur-xl border-b border-transparent"
+      }`}
+    >
+      {/* Gradient border accent on bottom */}
+      <div
+        className={`absolute bottom-0 left-0 right-0 h-[1px] transition-opacity duration-500 ${
+          isScrolled ? "opacity-100" : "opacity-0"
+        }`}
+        style={{
+          background: "linear-gradient(90deg, transparent, rgba(34,211,238,0.3), rgba(59,130,246,0.3), rgba(167,139,250,0.2), transparent)",
+        }}
+      />
+
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex justify-between items-center h-[72px]">
+          {/* Logo / Name - Left */}
+          <button
+            onClick={() => scrollToSection("home")}
+            className="text-gray-900 dark:text-white font-bold text-2xl font-pixelify tracking-tight hover:text-pipeline-cyan transition-colors duration-300"
           >
-            <h1 className={`font-bold transition-all duration-500 ${
-              isScrolled 
-                ? "text-xl text-slate-800 bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent" 
-                : "text-2xl text-white drop-shadow-lg"
-            }`}>
-              Jash Vaghasiya
-            </h1>
-            <p className={`transition-all duration-500 ${
-              isScrolled 
-                ? "text-xs text-slate-600" 
-                : "text-sm text-blue-200 drop-shadow-md"
-            }`}>
-              Data Engineer
-            </p>
-          </motion.div>
-          
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-1">
-              {navLinks.map((link, index) => (
-                <motion.button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id)}
-                  className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group ${
-                    activeSection === link.id
-                      ? isScrolled 
-                        ? "text-blue-600 font-semibold bg-blue-50 shadow-lg" 
-                        : "text-white font-semibold bg-white/20 shadow-lg backdrop-blur-sm"
-                      : isScrolled
-                        ? "text-slate-700 hover:text-blue-600 hover:bg-blue-50/80"
-                        : "text-blue-100 hover:text-white hover:bg-white/20"
-                  }`}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  {activeSection === link.id && (
-                    <motion.div 
-                      className={`absolute inset-0 rounded-lg ${
-                        isScrolled 
-                          ? "bg-gradient-to-r from-blue-100 to-emerald-100" 
-                          : "bg-gradient-to-r from-white/30 to-blue-300/30"
-                      }`}
-                      layoutId="activeTab"
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    />
-                  )}
-                  <span className="relative z-10">{link.label}</span>
-                  <motion.div
-                    className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r ${
-                      isScrolled ? "from-blue-500 to-emerald-500" : "from-white to-blue-300"
-                    } rounded-full`}
-                    initial={{ width: 0 }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </motion.button>
-              ))}
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button
-                  onClick={() => scrollToSection("contact")}
-                  className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 shadow-lg hover:shadow-2xl relative overflow-hidden ${
-                    isScrolled
-                      ? "bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white"
-                      : "bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm border border-white/30"
-                  }`}
-                >
-                  <span className="relative z-10">Contact</span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "100%" }}
-                    transition={{ duration: 0.6 }}
-                  />
-                </Button>
-              </motion.div>
-            </div>
+            Jash Vaghasiya
+          </button>
+
+          {/* Desktop Navigation - Center */}
+          <div className="hidden lg:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => scrollToSection(link.id)}
+                className={`relative text-base font-retro px-3 py-2 rounded-lg transition-all duration-300 ${
+                  activeSection === link.id
+                    ? "text-pipeline-cyan font-medium bg-pipeline-cyan/10 dark:bg-pipeline-cyan/10"
+                    : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5"
+                }`}
+              >
+                {link.label}
+              </button>
+            ))}
           </div>
-          
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="hover:bg-blue-50 transition-colors">
-                  <Menu className="h-6 w-6" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-64">
-                <div className="flex flex-col space-y-4 mt-8">
-                  {navLinks.map((link) => (
-                    <button
-                      key={link.id}
-                      onClick={() => scrollToSection(link.id)}
-                      className={`text-left px-4 py-3 rounded-lg transition-all duration-200 transform hover:scale-105 ${
-                        activeSection === link.id
-                          ? "text-blue-600 bg-blue-50 font-semibold"
-                          : "text-slate-700 hover:text-blue-600 hover:bg-blue-50"
-                      }`}
-                    >
-                      {link.label}
-                    </button>
-                  ))}
-                  <Button
-                    onClick={() => scrollToSection("contact")}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105"
-                  >
-                    Contact
-                  </Button>
-                </div>
-              </SheetContent>
-            </Sheet>
+
+          {/* Right side: Theme toggle + Mobile menu */}
+          <div className="flex items-center gap-3">
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="relative p-2.5 rounded-xl bg-gray-100/80 dark:bg-white/10 backdrop-blur-xl border border-gray-200/50 dark:border-white/10 hover:bg-gray-200/80 dark:hover:bg-white/20 hover:border-gray-300/50 dark:hover:border-white/20 transition-all duration-300 group"
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {theme === "dark" ? (
+                <Sun
+                  key="sun"
+                  className="h-4.5 w-4.5 text-amber-400 theme-icon-enter"
+                  style={{ width: "18px", height: "18px" }}
+                />
+              ) : (
+                <Moon
+                  key="moon"
+                  className="h-4.5 w-4.5 text-slate-700 theme-icon-enter"
+                  style={{ width: "18px", height: "18px" }}
+                />
+              )}
+            </button>
+
+            {/* Mobile menu */}
+            <div className="lg:hidden">
+              <Sheet open={isOpen} onOpenChange={setIsOpen}>
+                <SheetTrigger asChild>
+                  <button className="p-2.5 rounded-xl bg-gray-100/80 dark:bg-white/10 backdrop-blur-xl border border-gray-200/50 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200/80 dark:hover:bg-white/20 transition-all duration-300">
+                    <Menu className="h-5 w-5" />
+                  </button>
+                </SheetTrigger>
+                <SheetContent
+                  side="right"
+                  className="w-72 bg-white/95 dark:bg-data-dark-900/95 backdrop-blur-2xl border-l border-gray-200 dark:border-pipeline-blue/20"
+                >
+                  <div className="flex flex-col gap-1 mt-8">
+                    {navLinks.map((link) => (
+                      <button
+                        key={link.id}
+                        onClick={() => scrollToSection(link.id)}
+                        className={`text-left px-4 py-3 rounded-lg text-lg font-retro transition-all duration-300 ${
+                          activeSection === link.id
+                            ? "text-pipeline-cyan font-medium bg-pipeline-cyan/10 dark:bg-data-dark-800/40"
+                            : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-data-dark-800/40"
+                        }`}
+                      >
+                        {link.label}
+                      </button>
+                    ))}
+
+                    {/* Theme toggle in mobile menu */}
+                    <div className="mt-4 px-4 pt-4 border-t border-gray-200 dark:border-pipeline-blue/10">
+                      <button
+                        onClick={toggleTheme}
+                        className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-lg font-retro text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-data-dark-800/40 transition-all duration-300"
+                      >
+                        {theme === "dark" ? (
+                          <>
+                            <Sun className="h-4 w-4 text-amber-400" />
+                            <span>Light Mode</span>
+                          </>
+                        ) : (
+                          <>
+                            <Moon className="h-4 w-4 text-slate-700" />
+                            <span>Dark Mode</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </div>
           </div>
         </div>
       </div>
-      
-      {/* Scroll Progress Indicator */}
-      <motion.div
-        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-emerald-500"
-        style={{ width: `${scrollProgress}%` }}
-        initial={{ width: 0 }}
-        animate={{ width: `${scrollProgress}%` }}
-        transition={{ type: "spring", stiffness: 400, damping: 40 }}
-      />
     </nav>
   );
 }

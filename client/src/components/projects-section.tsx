@@ -1,123 +1,352 @@
-import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowRightIcon } from "lucide-react";
 import { Link } from "wouter";
+import { motion } from "framer-motion";
+import DataFlowDiagram, { PipelineNode } from "./visualizations/DataFlowDiagram";
+import { MiniBarChart, MiniLineChart } from "./visualizations/MetricChart";
+
+// ETL Pipeline Component
+function ETLPipelineFlow({ stages }: { stages: { name: string; color: string }[] }) {
+  return (
+    <div className="flex items-center gap-1.5 flex-wrap justify-center">
+      {stages.map((stage, index) => (
+        <div key={stage.name} className="flex items-center gap-1.5">
+          <div
+            className="px-2.5 py-1.5 rounded-md border text-center min-w-[80px]"
+            style={{
+              backgroundColor: stage.color + "10",
+              borderColor: stage.color + "30",
+            }}
+          >
+            <div className="text-sm font-retro font-bold" style={{ color: stage.color }}>
+              {stage.name}
+            </div>
+          </div>
+          {index < stages.length - 1 && (
+            <ArrowRightIcon className="h-3 w-3 text-gray-400 dark:text-gray-600 flex-shrink-0" />
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+interface ProjectData {
+  id: string;
+  title: string;
+  description: string;
+  technologies: string[];
+  pipeline: PipelineNode[];
+  pipelineStages: { name: string; color: string }[];
+  metrics: {
+    bars?: { label: string; value: number; color?: string }[];
+    line?: { data: number[]; color: string; label: string };
+    kpis?: { value: string; label: string; color: string }[];
+  };
+  architectureLayers: { name: string; techs: string[]; color: string }[];
+}
 
 export default function ProjectsSection() {
-  const projects = [
+  const projects: ProjectData[] = [
     {
       id: "gcp-azure-migration",
       title: "GCP to Azure Migration & Governance Platform",
-      description: "Enterprise-scale automated data pipeline solution enabling seamless migration, processing, and governance of large-scale datasets between Google Cloud Platform and Microsoft Azure with zero data loss and comprehensive security controls.",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
-      technologies: ["Azure", "GCP", "PySpark", "SQL", "Databricks"]
+      description:
+        "Enterprise-scale automated data pipeline solution enabling seamless migration, processing, and governance of large-scale datasets between Google Cloud Platform and Microsoft Azure with zero data loss.",
+      technologies: ["Azure", "GCP", "PySpark", "SQL", "Databricks"],
+      pipeline: [
+        { label: "GCP BigQuery", type: "source", metric: "TB-scale" },
+        { label: "Data Factory", type: "orchestration", metric: "Orchestration" },
+        { label: "Databricks", type: "process", metric: "Transform" },
+        { label: "Azure Synapse", type: "storage", metric: "Warehouse" },
+        { label: "Power BI", type: "analytics", metric: "Reports" },
+      ],
+      pipelineStages: [
+        { name: "Extract", color: "#10b981" },
+        { name: "Migrate", color: "#3b82f6" },
+        { name: "Transform", color: "#06b6d4" },
+        { name: "Load", color: "#8b5cf6" },
+        { name: "Validate", color: "#f97316" },
+      ],
+      metrics: {
+        kpis: [
+          { value: "0%", label: "Data Loss", color: "#10b981" },
+          { value: "TB+", label: "Data Migrated", color: "#3b82f6" },
+          { value: "99.9%", label: "Uptime", color: "#22d3ee" },
+        ],
+        bars: [
+          { label: "Extract", value: 95, color: "#10b981" },
+          { label: "Transform", value: 88, color: "#3b82f6" },
+          { label: "Load", value: 92, color: "#8b5cf6" },
+          { label: "Validate", value: 100, color: "#22d3ee" },
+        ],
+      },
+      architectureLayers: [
+        { name: "Source", techs: ["GCP BigQuery", "Cloud Storage"], color: "#10b981" },
+        { name: "Orchestration", techs: ["Azure Data Factory"], color: "#06b6d4" },
+        { name: "Processing", techs: ["Databricks", "PySpark"], color: "#3b82f6" },
+        { name: "Storage", techs: ["Azure Synapse", "ADLS Gen2"], color: "#8b5cf6" },
+        { name: "Visualization", techs: ["Power BI"], color: "#f97316" },
+      ],
     },
     {
       id: "real-time-analytics-pipeline",
       title: "Real-Time Streaming and Automated Deployments",
-      description: "Enterprise-scale cloud-native data platform leveraging Infrastructure-as-Code, real-time streaming, and automated CI/CD deployments to deliver scalable, reliable, and high-performance data engineering solutions on Microsoft Azure.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
-      technologies: ["Azure", "Kafka", "PySpark", "Databricks", "DLT"]
+      description:
+        "Cloud-native data platform leveraging Infrastructure-as-Code, real-time streaming, and automated CI/CD deployments to deliver scalable, high-performance data engineering solutions on Azure.",
+      technologies: ["Azure", "Kafka", "PySpark", "Databricks", "DLT"],
+      pipeline: [
+        { label: "Kafka Stream", type: "source", metric: "Real-time" },
+        { label: "Event Hub", type: "orchestration", metric: "Ingestion" },
+        { label: "Databricks", type: "process", metric: "Streaming" },
+        { label: "Delta Lake", type: "storage", metric: "Lakehouse" },
+        { label: "Dashboard", type: "analytics", metric: "Real-time" },
+      ],
+      pipelineStages: [
+        { name: "Ingest", color: "#10b981" },
+        { name: "Stream", color: "#3b82f6" },
+        { name: "Process", color: "#06b6d4" },
+        { name: "Store", color: "#8b5cf6" },
+        { name: "Deliver", color: "#f97316" },
+      ],
+      metrics: {
+        line: {
+          data: [10, 25, 35, 50, 65, 80, 90, 95, 98, 99, 99.5, 99.9],
+          color: "#22d3ee",
+          label: "Streaming Uptime %",
+        },
+        kpis: [
+          { value: "<1s", label: "Latency", color: "#10b981" },
+          { value: "24/7", label: "Streaming", color: "#3b82f6" },
+          { value: "Auto", label: "CI/CD Deploy", color: "#8b5cf6" },
+        ],
+      },
+      architectureLayers: [
+        { name: "Ingestion", techs: ["Kafka", "Event Hubs"], color: "#10b981" },
+        { name: "Processing", techs: ["Databricks Streaming", "DLT"], color: "#3b82f6" },
+        { name: "Storage", techs: ["Delta Lake", "ADLS"], color: "#8b5cf6" },
+        { name: "Deployment", techs: ["Terraform", "Azure DevOps"], color: "#06b6d4" },
+        { name: "Monitoring", techs: ["Azure Monitor", "Datadog"], color: "#f97316" },
+      ],
     },
     {
       id: "customer-analytics-dashboard",
-      title: "Data Warehousing And Analytics Platform",
-      description: "Comprehensive end-to-end data analytics platform processing 15+ years of LAPD crime and arrest data using Azure cloud services, implementing medallion architecture and FBI NIBRS compliance standards to deliver actionable public safety insights through advanced data warehousing and visualization capabilities.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
-      technologies: ["Azure", "Power BI", "Airflow", "Spark", "SQL"]
-    }
+      title: "Data Warehousing and Analytics Platform",
+      description:
+        "End-to-end data analytics platform processing 15+ years of LAPD crime and arrest data, implementing medallion architecture and FBI NIBRS compliance for public safety insights.",
+      technologies: ["Azure", "Power BI", "Airflow", "Spark", "SQL"],
+      pipeline: [
+        { label: "Raw CSV", type: "source", metric: "15+ Years" },
+        { label: "Bronze Layer", type: "storage", metric: "Raw Ingest" },
+        { label: "Silver Layer", type: "process", metric: "Cleaned" },
+        { label: "Gold Layer", type: "storage", metric: "Aggregated" },
+        { label: "Power BI", type: "analytics", metric: "Reports" },
+      ],
+      pipelineStages: [
+        { name: "Ingest", color: "#10b981" },
+        { name: "Bronze", color: "#3b82f6" },
+        { name: "Silver", color: "#06b6d4" },
+        { name: "Gold", color: "#8b5cf6" },
+        { name: "Reports", color: "#f97316" },
+      ],
+      metrics: {
+        bars: [
+          { label: "Bronze", value: 100, color: "#cd7f32" },
+          { label: "Silver", value: 85, color: "#c0c0c0" },
+          { label: "Gold", value: 70, color: "#ffd700" },
+          { label: "Reports", value: 60, color: "#f97316" },
+        ],
+        kpis: [
+          { value: "15+", label: "Years of Data", color: "#10b981" },
+          { value: "NIBRS", label: "FBI Compliant", color: "#3b82f6" },
+          { value: "100%", label: "Data Quality", color: "#22d3ee" },
+        ],
+      },
+      architectureLayers: [
+        { name: "Source", techs: ["CSV Files", "LAPD Open Data"], color: "#10b981" },
+        { name: "Orchestration", techs: ["Apache Airflow"], color: "#06b6d4" },
+        { name: "Processing", techs: ["Apache Spark", "PySpark"], color: "#3b82f6" },
+        { name: "Storage", techs: ["Medallion Architecture", "Delta Lake"], color: "#8b5cf6" },
+        { name: "Analytics", techs: ["Power BI", "SQL Analytics"], color: "#f97316" },
+      ],
+    },
   ];
 
-  const getColorClass = (index: number) => {
-    const colors = [
-      "bg-blue-100 text-blue-800",
-      "bg-emerald-100 text-emerald-800",
-      "bg-purple-100 text-purple-800",
-      "bg-orange-100 text-orange-800",
-      "bg-sky-100 text-sky-800",
-      "bg-red-100 text-red-800"
-    ];
-    return colors[index % colors.length];
-  };
-
   return (
-    <section id="projects" className="py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-24 bg-gray-50 dark:bg-data-dark-950">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-bold text-slate-800 mb-4">Projects</h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            A showcase of data engineering projects and pipeline implementations
+          <h2 className="text-5xl font-bold font-pixel text-gray-900 dark:text-white mb-4">
+            Selected Projects
+          </h2>
+          <p className="text-xl font-retro text-gray-500 dark:text-gray-400 mb-12 max-w-2xl">
+            Enterprise-scale data engineering solutions and pipeline
+            implementations.
           </p>
+          {/* Pipeline legend */}
+          <div className="flex flex-wrap gap-4 -mt-6 mb-6">
+            {[
+              { type: "Source", color: "#10b981" },
+              { type: "Processing", color: "#3b82f6" },
+              { type: "Storage", color: "#8b5cf6" },
+              { type: "Analytics", color: "#f97316" },
+              { type: "Orchestration", color: "#06b6d4" },
+            ].map((item) => (
+              <div key={item.type} className="flex items-center gap-1.5">
+                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }} />
+                <span className="text-base font-retro text-gray-400 dark:text-gray-500">{item.type}</span>
+              </div>
+            ))}
+          </div>
         </motion.div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+
+        <div className="space-y-8">
+          {projects.map((project, projectIndex) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
+              key={project.id}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8 }}
-              className="transition-all duration-300"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: projectIndex * 0.1 }}
+              className="bg-white/80 dark:bg-data-dark-800/30 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl overflow-hidden group shadow-sm dark:shadow-none"
             >
-              <Link href={`/project/${project.id}`}>
-                <Card className="bg-white shadow-md hover:shadow-2xl transition-all duration-300 h-full cursor-pointer group overflow-hidden">
-                  <div className="aspect-video overflow-hidden rounded-t-lg relative">
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                  <CardContent className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-xl font-semibold text-slate-800 mb-2">
+              {/* Project Header */}
+              <div className="p-6 pb-4">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-pixelify text-gray-900 dark:text-white mb-2 leading-snug">
                       {project.title}
                     </h3>
-                    <p className="text-slate-600 mb-4 flex-grow">
+                    <p className="text-lg font-retro text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl">
                       {project.description}
                     </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.map((tech, techIndex) => (
-                        <motion.div
-                          key={techIndex}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ 
-                            delay: techIndex * 0.1,
-                            type: "spring",
-                            stiffness: 300
-                          }}
-                          whileHover={{ 
-                            scale: 1.1,
-                            rotate: 5,
-                            y: -2
+                  </div>
+                  <Link href={`/project/${project.id}`}>
+                    <span className="text-base font-medium font-retro text-pipeline-cyan inline-flex items-center hover:gap-2 transition-all duration-300 flex-shrink-0 cursor-pointer">
+                      View Details
+                      <ArrowRight className="ml-1 h-5 w-5" />
+                    </span>
+                  </Link>
+                </div>
+
+                {/* ETL Pipeline Flow */}
+                <div className="mb-4 bg-gray-100/80 dark:bg-data-dark-900/30 border border-gray-200 dark:border-pipeline-blue/10 rounded-lg p-3">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+                      ETL Pipeline Stages
+                    </span>
+                  </div>
+                  <ETLPipelineFlow stages={project.pipelineStages} />
+                </div>
+
+                {/* Tech tags */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-base text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-data-dark-700/60 border border-gray-200 dark:border-pipeline-blue/10 rounded px-2 py-0.5 font-retro"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Pipeline Diagram */}
+              <div className="px-6 pb-4">
+                <div className="bg-gray-100/80 dark:bg-data-dark-900/50 border border-gray-200 dark:border-pipeline-blue/10 rounded-lg p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+                      Data Pipeline Architecture
+                    </span>
+                    <span className="text-xs font-retro text-pipeline-green flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-pipeline-green animate-pulse" />
+                      PIPELINE
+                    </span>
+                  </div>
+                  <DataFlowDiagram
+                    nodes={project.pipeline}
+                    compact={false}
+                    animated={true}
+                  />
+                </div>
+              </div>
+
+              {/* Metrics & Architecture Row */}
+              <div className="px-6 pb-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* KPI Cards */}
+                  {project.metrics.kpis && (
+                    <div className="space-y-2">
+                      <span className="text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+                        Key Metrics
+                      </span>
+                      <div className="space-y-2">
+                        {project.metrics.kpis.map((kpi, i) => (
+                          <div
+                            key={i}
+                            className="flex items-center gap-3 rounded-lg border px-3 py-2"
+                            style={{
+                              backgroundColor: kpi.color + "08",
+                              borderColor: kpi.color + "20",
+                            }}
+                          >
+                            <span className="text-2xl font-bold font-retro" style={{ color: kpi.color }}>
+                              {kpi.value}
+                            </span>
+                            <span className="text-base text-gray-500 dark:text-gray-400 font-retro">{kpi.label}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Architecture Stack */}
+                  <div className="space-y-2">
+                    <span className="text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+                      Architecture Stack
+                    </span>
+                    <div className="space-y-1">
+                      {project.architectureLayers.map((layer, i) => (
+                        <div
+                          key={i}
+                          className="flex items-center gap-2 rounded border px-2.5 py-1.5"
+                          style={{
+                            backgroundColor: layer.color + "08",
+                            borderColor: layer.color + "20",
                           }}
                         >
-                          <Badge 
-                            className={`text-xs font-medium ${getColorClass(index)} cursor-default`}
-                            variant="secondary"
-                          >
-                            {tech}
-                          </Badge>
-                        </motion.div>
+                          <div
+                            className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                            style={{ backgroundColor: layer.color }}
+                          />
+                          <span className="text-sm font-retro font-bold uppercase" style={{ color: layer.color }}>
+                            {layer.name}
+                          </span>
+                          <div className="flex flex-wrap gap-1 ml-auto">
+                            {layer.techs.map((tech) => (
+                              <span
+                                key={tech}
+                                className="text-xs font-retro px-1.5 py-0.5 rounded"
+                                style={{
+                                  color: layer.color,
+                                  backgroundColor: layer.color + "15",
+                                }}
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
                       ))}
                     </div>
-                    <span className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                      View Project
-                      <ArrowRight className="ml-1 h-4 w-4" />
-                    </span>
-                  </CardContent>
-                </Card>
-              </Link>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

@@ -11,23 +11,27 @@ import Footer from "@/components/footer";
 
 export default function Portfolio() {
   useEffect(() => {
-    // Set page title
-    document.title = "Jash Vaghasiya - Data Engineer Portfolio";
-    
-    // Add meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
+    document.title = "Jash Vaghasiya - Data Engineer";
+
+    const metaDescription = document.querySelector(
+      'meta[name="description"]'
+    );
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Jash Vaghasiya - Data Engineer specializing in building robust data pipelines and transforming raw data into actionable insights for data-driven decision making.');
+      metaDescription.setAttribute(
+        "content",
+        "Jash Vaghasiya - Data Engineer specializing in building robust data pipelines and transforming raw data into actionable insights."
+      );
     } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = 'Jash Vaghasiya - Data Engineer specializing in building robust data pipelines and transforming raw data into actionable insights for data-driven decision making.';
+      const meta = document.createElement("meta");
+      meta.name = "description";
+      meta.content =
+        "Jash Vaghasiya - Data Engineer specializing in building robust data pipelines and transforming raw data into actionable insights.";
       document.head.appendChild(meta);
     }
   }, []);
 
   return (
-    <div className="bg-slate-50 font-sans">
+    <div className="bg-white dark:bg-data-dark-950 font-sans">
       <Navigation />
       <HeroSection />
       <ExperienceSection />
