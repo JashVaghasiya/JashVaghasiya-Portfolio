@@ -31,7 +31,7 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <div className="bg-white dark:bg-data-dark-950 font-sans">
+    <div className="bg-white dark:bg-data-dark-950 font-sans overflow-x-hidden">
       <Navigation />
       <HeroSection />
       <ExperienceSection />

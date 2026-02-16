@@ -69,12 +69,12 @@ export default function Navigation() {
         }}
       />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center h-[72px]">
           {/* Logo / Name - Left */}
           <button
             onClick={() => scrollToSection("home")}
-            className="text-gray-900 dark:text-white font-bold text-2xl font-pixelify tracking-tight hover:text-pipeline-cyan transition-colors duration-300"
+            className="text-gray-900 dark:text-white font-bold text-lg sm:text-xl md:text-2xl font-pixelify tracking-tight hover:text-pipeline-cyan transition-colors duration-300 truncate max-w-[200px] sm:max-w-none"
           >
             Jash Vaghasiya
           </button>

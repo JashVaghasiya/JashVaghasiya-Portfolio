@@ -44,7 +44,7 @@ export default function HeroSection() {
 
   const handleDownloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/attached_assets/jash vaghasiya-engineer_1751669132819.docx";
+    link.href = "/attached_assets/Jash Vaghasiya-Engineer_1751669132819.docx";
     link.download = "Jash_Vaghasiya_Resume.docx";
     link.click();
   };
@@ -109,7 +109,7 @@ export default function HeroSection() {
       className="relative min-h-screen flex items-center justify-center bg-gray-50 dark:bg-data-dark-900 overflow-hidden"
     >
       {/* Blueprint grid background */}
-      <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.04]">
+      <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.04] overflow-hidden">
         <div
           className="w-full h-full"
           style={{
@@ -120,44 +120,44 @@ export default function HeroSection() {
       </div>
 
       {/* Subtle radial glow */}
-      <div className="absolute inset-0 pointer-events-none" style={{
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{
         background: "radial-gradient(ellipse at 50% 30%, rgba(34,211,238,0.04) 0%, transparent 60%)",
       }} />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-28">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 md:px-6 py-16 sm:py-20 md:py-28 overflow-hidden">
         {/* Terminal-style header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-10 max-w-2xl mx-auto"
+          className="mb-8 sm:mb-10 w-full max-w-2xl mx-auto"
         >
-          <div className="bg-white/70 dark:bg-data-dark-800/60 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/20 rounded-xl overflow-hidden shadow-lg shadow-gray-200/50 dark:shadow-none">
+          <div className="bg-white/70 dark:bg-data-dark-800/60 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/20 rounded-xl overflow-hidden shadow-lg shadow-gray-200/50 dark:shadow-none w-full">
             {/* Terminal title bar */}
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-200 dark:border-pipeline-blue/10 bg-gray-50/80 dark:bg-data-dark-800/40">
-              <div className="w-3 h-3 rounded-full bg-red-500/60"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500/60"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500/60"></div>
-              <span className="ml-3 text-sm text-gray-400 dark:text-gray-500 font-retro">jash@data-engineer ~ </span>
+            <div className="flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 border-b border-gray-200 dark:border-pipeline-blue/10 bg-gray-50/80 dark:bg-data-dark-800/40">
+              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/60"></div>
+              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/60"></div>
+              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/60"></div>
+              <span className="ml-2 sm:ml-3 text-xs sm:text-sm text-gray-400 dark:text-gray-500 font-retro truncate">jash@data-engineer ~ </span>
             </div>
             {/* Terminal content */}
-            <div className="px-6 py-6">
-              <div className="font-retro text-base text-gray-400 dark:text-gray-500 mb-1">
+            <div className="px-4 sm:px-5 md:px-6 py-5 sm:py-6">
+              <div className="font-retro text-sm sm:text-base text-gray-400 dark:text-gray-500 mb-1">
                 <span className="text-pipeline-green">$</span> whoami
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold font-pixel text-gray-900 dark:text-white tracking-tight leading-tight mb-2">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-pixel text-gray-900 dark:text-white tracking-tight leading-tight mb-2">
                 Jash Vaghasiya
               </h1>
-              <div className="font-retro text-base text-gray-400 dark:text-gray-500 mb-1 mt-4">
+              <div className="font-retro text-sm sm:text-base text-gray-400 dark:text-gray-500 mb-1 mt-3 sm:mt-4">
                 <span className="text-pipeline-green">$</span> role --current
               </div>
-              <p className="text-2xl md:text-3xl text-pipeline-cyan font-semibold font-pixelify">
+              <p className="text-xl sm:text-2xl md:text-3xl text-pipeline-cyan font-semibold font-pixelify">
                 Data Engineer
               </p>
-              <div className="font-retro text-base text-gray-400 dark:text-gray-500 mt-4 mb-1">
+              <div className="font-retro text-sm sm:text-base text-gray-400 dark:text-gray-500 mt-3 sm:mt-4 mb-1">
                 <span className="text-pipeline-green">$</span> describe --brief
               </div>
-              <p className="text-xl font-retro text-gray-500 dark:text-gray-400 leading-relaxed max-w-xl">
+              <p className="text-base sm:text-lg md:text-xl font-retro text-gray-500 dark:text-gray-400 leading-relaxed max-w-xl">
                 Building enterprise-scale data pipelines and transforming raw data into
                 actionable insights. Specializing in Azure, Databricks, and real-time
                 streaming architectures.
@@ -171,30 +171,34 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 max-w-xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-6 sm:mb-8 w-full max-w-xl mx-auto"
         >
           {/* Data Volume Trend */}
-          <div className="bg-white/70 dark:bg-data-dark-800/40 backdrop-blur-xl border border-gray-200 dark:border-pipeline-cyan/15 rounded-xl p-4 shadow-sm dark:shadow-none">
+          <div className="bg-white/70 dark:bg-data-dark-800/40 backdrop-blur-xl border border-gray-200 dark:border-pipeline-cyan/15 rounded-xl p-4 sm:p-5 shadow-sm dark:shadow-none w-full min-w-0 overflow-hidden">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider">Data Volume Trend</span>
-              <span className="text-xs font-retro text-pipeline-green">LIVE</span>
+              <span className="text-xs sm:text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider truncate">Data Volume Trend</span>
+              <span className="text-xs font-retro text-pipeline-green flex-shrink-0">LIVE</span>
             </div>
-            <div className="flex items-end justify-between gap-4">
-              <div>
-                <div className="text-2xl font-bold text-gray-900 dark:text-white font-retro">850K</div>
-                <div className="text-base text-gray-400 dark:text-gray-500 font-retro">records/day</div>
+            <div className="flex items-end justify-between gap-3 sm:gap-4 overflow-hidden">
+              <div className="min-w-0">
+                <div className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white font-retro">850K</div>
+                <div className="text-sm sm:text-base text-gray-400 dark:text-gray-500 font-retro">records/day</div>
               </div>
-              <MiniLineChart data={volumeTrendData} color="#22d3ee" height={44} width={110} label="" />
+              <div className="flex-shrink-0">
+                <MiniLineChart data={volumeTrendData} color="#22d3ee" height={44} width={90} label="" />
+              </div>
             </div>
           </div>
 
           {/* Performance Improvement */}
-          <div className="bg-white/70 dark:bg-data-dark-800/40 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-4 shadow-sm dark:shadow-none">
+          <div className="bg-white/70 dark:bg-data-dark-800/40 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-4 sm:p-5 shadow-sm dark:shadow-none w-full min-w-0 overflow-hidden">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider">Performance Gains</span>
-              <span className="text-xs font-retro text-pipeline-cyan">% Improvement</span>
+              <span className="text-xs sm:text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider truncate">Performance Gains</span>
+              <span className="text-xs font-retro text-pipeline-cyan flex-shrink-0 whitespace-nowrap">% Improvement</span>
             </div>
-            <MiniBarChart data={perfBarData} height={52} maxWidth={200} />
+            <div className="overflow-hidden">
+              <MiniBarChart data={perfBarData} height={52} maxWidth={200} />
+            </div>
           </div>
         </motion.div>
 
@@ -203,20 +207,20 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8 max-w-4xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 mb-6 sm:mb-8 w-full max-w-4xl mx-auto"
         >
           {metrics.map((metric, index) => (
             <div
               key={index}
-              className="bg-white/70 dark:bg-data-dark-800/40 backdrop-blur-xl border border-gray-200 dark:border-pipeline-cyan/20 rounded-xl p-5 hover:-translate-y-0.5 transition-transform duration-400 shadow-sm dark:shadow-none"
+              className="bg-white/70 dark:bg-data-dark-800/40 backdrop-blur-xl border border-gray-200 dark:border-pipeline-cyan/20 rounded-xl p-4 sm:p-5 hover:-translate-y-0.5 transition-transform duration-400 shadow-sm dark:shadow-none w-full min-w-0"
             >
-              <div className="text-4xl font-bold text-gray-900 dark:text-white mb-1 font-pixelify">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-1 font-pixelify">
                 <MetricCounter end={metric.value} suffix={metric.suffix} />
               </div>
-              <p className="text-xl font-medium text-pipeline-cyan mb-1 font-retro">
+              <p className="text-base sm:text-lg md:text-xl font-medium text-pipeline-cyan mb-1 font-retro">
                 {metric.label}
               </p>
-              <p className="text-lg text-gray-400 dark:text-gray-500 mb-3 font-retro">
+              <p className="text-sm sm:text-base md:text-lg text-gray-400 dark:text-gray-500 mb-3 font-retro">
                 {metric.sublabel}
               </p>
 
@@ -251,11 +255,11 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="mb-10 max-w-4xl mx-auto"
+          className="mb-8 sm:mb-10 w-full max-w-4xl mx-auto overflow-hidden"
         >
-          <div className="bg-white/70 dark:bg-data-dark-800/30 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-5 shadow-sm dark:shadow-none">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+          <div className="bg-white/70 dark:bg-data-dark-800/30 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-4 sm:p-5 shadow-sm dark:shadow-none overflow-x-auto scrollbar-thin w-full">
+            <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
+              <span className="text-xs sm:text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider">
                 End-to-End Pipeline Architecture
               </span>
               <span className="text-xs font-retro text-pipeline-green flex items-center gap-1.5">
@@ -272,46 +276,46 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-10 md:mb-12">
           <button
             onClick={() => scrollToSection("projects")}
-            className="text-lg font-medium font-retro text-white dark:text-data-dark-950 bg-pipeline-cyan hover:bg-pipeline-cyan/90 px-8 py-3 rounded-lg transition-colors duration-300"
+            className="text-base sm:text-lg font-medium font-retro text-white dark:text-data-dark-950 bg-pipeline-cyan hover:bg-pipeline-cyan/90 px-6 sm:px-7 md:px-8 py-3 rounded-lg transition-colors duration-300 min-h-[48px]"
           >
             View Projects
           </button>
           <button
             onClick={() => scrollToSection("contact")}
-            className="text-lg font-medium font-retro text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-pipeline-blue/30 hover:border-pipeline-cyan/50 hover:text-gray-900 dark:hover:text-white px-8 py-3 rounded-lg transition-all duration-300"
+            className="text-base sm:text-lg font-medium font-retro text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-pipeline-blue/30 hover:border-pipeline-cyan/50 hover:text-gray-900 dark:hover:text-white px-6 sm:px-7 md:px-8 py-3 rounded-lg transition-all duration-300 min-h-[48px]"
           >
             Contact
           </button>
           <button
             onClick={handleDownloadResume}
-            className="text-lg font-medium font-retro text-gray-500 dark:text-gray-400 hover:text-pipeline-cyan px-8 py-3 rounded-lg transition-colors duration-300"
+            className="text-base sm:text-lg font-medium font-retro text-gray-500 dark:text-gray-400 hover:text-pipeline-cyan px-6 sm:px-7 md:px-8 py-3 rounded-lg transition-colors duration-300 min-h-[48px]"
           >
             Download Resume
           </button>
         </div>
 
         {/* Tech Icons - Static */}
-        <div className="flex flex-wrap justify-center gap-4 mb-10">
+        <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 md:gap-4 mb-8 sm:mb-10">
           {techIcons.map((tech) => (
             <div
               key={tech.name}
-              className="flex items-center gap-2 bg-white/70 dark:bg-data-dark-800/40 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/10 rounded-lg px-4 py-2 hover:-translate-y-0.5 transition-transform duration-400 shadow-sm dark:shadow-none"
+              className="flex items-center gap-2 bg-white/70 dark:bg-data-dark-800/40 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/10 rounded-lg px-3 sm:px-4 py-2 hover:-translate-y-0.5 transition-transform duration-400 shadow-sm dark:shadow-none"
             >
               <div
-                className="w-2.5 h-2.5 rounded-full"
+                className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full flex-shrink-0"
                 style={{ backgroundColor: tech.color }}
               />
-              <span className="text-base text-gray-500 dark:text-gray-400 font-medium font-retro">{tech.name}</span>
+              <span className="text-sm sm:text-base text-gray-500 dark:text-gray-400 font-medium font-retro">{tech.name}</span>
             </div>
           ))}
         </div>
 
         {/* Contact info */}
-        <div className="flex flex-wrap justify-center gap-6 text-base font-retro text-gray-400 dark:text-gray-500">
-          <span>jashmukeshvaghasiya@gmail.com</span>
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-3 md:gap-6 text-sm sm:text-base font-retro text-gray-400 dark:text-gray-500 text-center px-2">
+          <span className="break-all">jashmukeshvaghasiya@gmail.com</span>
           <span className="hidden sm:inline text-gray-300 dark:text-gray-700">&middot;</span>
           <span>+1 (437) 436-3011</span>
           <span className="hidden sm:inline text-gray-300 dark:text-gray-700">&middot;</span>
@@ -319,12 +323,12 @@ export default function HeroSection() {
         </div>
 
         {/* Social links */}
-        <div className="flex justify-center gap-6 mt-4">
+        <div className="flex justify-center gap-4 sm:gap-5 md:gap-6 mt-4 sm:mt-5">
           <a
             href="https://www.linkedin.com/in/jash-vaghasiya"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-base font-retro text-gray-400 dark:text-gray-500 hover:text-pipeline-cyan transition-colors duration-300"
+            className="text-sm sm:text-base font-retro text-gray-400 dark:text-gray-500 hover:text-pipeline-cyan transition-colors duration-300 min-h-[44px] flex items-center"
           >
             LinkedIn
           </a>
@@ -332,7 +336,7 @@ export default function HeroSection() {
             href="https://github.com/JashVaghasiya-DE"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-base font-retro text-gray-400 dark:text-gray-500 hover:text-pipeline-cyan transition-colors duration-300"
+            className="text-sm sm:text-base font-retro text-gray-400 dark:text-gray-500 hover:text-pipeline-cyan transition-colors duration-300 min-h-[44px] flex items-center"
           >
             GitHub
           </a>

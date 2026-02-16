@@ -22,7 +22,7 @@ export default function ArchitectureLayer({ layers, title }: ArchitectureLayerPr
 
       <div className="relative space-y-1">
         {/* Vertical flow arrow on the left */}
-        <div className="absolute left-4 top-4 bottom-4 w-px hidden md:block">
+        <div className="absolute left-[18px] top-4 bottom-4 w-px hidden md:block">
           <div className="w-full h-full" style={{
             background: "linear-gradient(to bottom, #10b98150, #3b82f650, #8b5cf650, #f9731650)"
           }} />
@@ -55,7 +55,7 @@ export default function ArchitectureLayer({ layers, title }: ArchitectureLayerPr
             >
               {/* Connection dot */}
               <div
-                className="absolute -left-[26px] top-1/2 -translate-y-1/2 w-3 h-3 rounded-full border-2 hidden md:block"
+                className="absolute -left-[28px] top-1/2 -translate-y-1/2 w-3 h-3 rounded-full border-2 hidden md:block"
                 style={{ borderColor: colors.border, backgroundColor: colors.bg }}
               />
 

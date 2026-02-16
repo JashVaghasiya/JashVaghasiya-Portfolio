@@ -98,76 +98,76 @@ export default function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-gray-50 dark:bg-data-dark-900">
-      <div className="max-w-5xl mx-auto px-6">
-        <h2 className="text-5xl font-pixel text-gray-900 dark:text-white mb-4">
+    <section id="contact" className="py-20 md:py-24 bg-gray-50 dark:bg-data-dark-900 overflow-x-hidden">
+      <div className="max-w-5xl mx-auto px-5 md:px-6">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-pixel text-gray-900 dark:text-white mb-4 md:mb-4 leading-tight">
           Get In Touch
         </h2>
-        <p className="text-xl font-retro text-gray-500 dark:text-gray-400 mb-12">
+        <p className="text-base sm:text-lg md:text-xl font-retro text-gray-500 dark:text-gray-400 mb-10 md:mb-12 leading-relaxed">
           Ready to discuss your data engineering needs? Let's connect.
         </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 md:gap-6">
           {/* Contact Info Column */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-5 md:space-y-6">
             {/* Availability Status */}
-            <div className="bg-white/80 dark:bg-data-dark-800/40 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-5 shadow-sm dark:shadow-none">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-base font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+            <div className="bg-white/80 dark:bg-data-dark-800/40 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-5 md:p-5 shadow-sm dark:shadow-none">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+                <span className="text-base md:text-base font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider">
                   Availability
                 </span>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-pipeline-green animate-pulse"></div>
-                  <span className="text-sm font-retro text-pipeline-green">OPEN TO OPPORTUNITIES</span>
+                  <span className="text-sm md:text-sm font-retro text-pipeline-green">OPEN TO OPPORTUNITIES</span>
                 </div>
               </div>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <Clock className="h-5 w-5 text-pipeline-cyan flex-shrink-0" />
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 md:gap-3">
+                  <Clock className="h-5 w-5 md:h-5 md:w-5 text-pipeline-cyan flex-shrink-0" />
                   <div>
-                    <p className="text-base font-retro text-gray-900 dark:text-white">Response Time</p>
-                    <p className="text-sm font-retro text-gray-400 dark:text-gray-500">Within 24 hours</p>
+                    <p className="text-base md:text-base font-retro text-gray-900 dark:text-white">Response Time</p>
+                    <p className="text-sm md:text-sm font-retro text-gray-400 dark:text-gray-500">Within 24 hours</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-pipeline-green flex-shrink-0" />
+                <div className="flex items-center gap-3 md:gap-3">
+                  <CheckCircle2 className="h-5 w-5 md:h-5 md:w-5 text-pipeline-green flex-shrink-0" />
                   <div>
-                    <p className="text-base font-retro text-gray-900 dark:text-white">Status</p>
-                    <p className="text-sm font-retro text-gray-400 dark:text-gray-500">Available for projects</p>
+                    <p className="text-base md:text-base font-retro text-gray-900 dark:text-white">Status</p>
+                    <p className="text-sm md:text-sm font-retro text-gray-400 dark:text-gray-500">Available for projects</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Contact Methods */}
-            <div className="bg-white/80 dark:bg-data-dark-800/40 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-5 shadow-sm dark:shadow-none">
-              <span className="text-base font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider block mb-4">
+            <div className="bg-white/80 dark:bg-data-dark-800/40 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-5 md:p-5 shadow-sm dark:shadow-none">
+              <span className="text-base md:text-base font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider block mb-4 md:mb-4">
                 Contact Methods
               </span>
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 {contactMethods.map((method, index) => {
                   const Icon = method.icon;
                   const content = (
                     <div
-                      className="flex items-start gap-3 p-3 rounded-lg border transition-all duration-300"
+                      className="flex items-start gap-3 md:gap-3 p-3 md:p-3 rounded-lg border transition-all duration-300 min-h-[48px]"
                       style={{
                         backgroundColor: method.color + "08",
                         borderColor: method.color + "20",
                       }}
                     >
                       <div
-                        className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                        className="w-10 h-10 md:w-10 md:h-10 rounded-lg flex items-center justify-center flex-shrink-0"
                         style={{
                           backgroundColor: method.color + "15",
                         }}
                       >
-                        <Icon className="h-5 w-5" style={{ color: method.color }} />
+                        <Icon className="h-5 w-5 md:h-5 md:w-5" style={{ color: method.color }} />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="text-base font-retro font-medium" style={{ color: method.color }}>
+                        <p className="text-base md:text-base font-retro font-medium" style={{ color: method.color }}>
                           {method.label}
                         </p>
-                        <p className="text-base font-retro text-gray-500 dark:text-gray-400 break-words">
+                        <p className="text-base md:text-base font-retro text-gray-500 dark:text-gray-400 break-all">
                           {method.value}
                         </p>
                       </div>
@@ -192,8 +192,8 @@ export default function ContactSection() {
             </div>
 
             {/* Social Links */}
-            <div className="bg-white/80 dark:bg-data-dark-800/40 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-5 shadow-sm dark:shadow-none">
-              <span className="text-base font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider block mb-4">
+            <div className="bg-white/80 dark:bg-data-dark-800/40 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-5 md:p-5 shadow-sm dark:shadow-none">
+              <span className="text-base md:text-base font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider block mb-4 md:mb-4">
                 Connect Online
               </span>
               <div className="space-y-3">
@@ -205,25 +205,25 @@ export default function ContactSection() {
                       href={social.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 p-3 rounded-lg border hover:scale-[1.02] transition-all duration-300"
+                      className="flex items-center gap-3 md:gap-3 p-3 md:p-3 rounded-lg border hover:scale-[1.02] transition-all duration-300 min-h-[48px]"
                       style={{
                         backgroundColor: social.color + "08",
                         borderColor: social.color + "20",
                       }}
                     >
                       <div
-                        className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                        className="w-10 h-10 md:w-10 md:h-10 rounded-lg flex items-center justify-center flex-shrink-0"
                         style={{
                           backgroundColor: social.color + "15",
                         }}
                       >
-                        <Icon className="h-5 w-5" style={{ color: social.color }} />
+                        <Icon className="h-5 w-5 md:h-5 md:w-5" style={{ color: social.color }} />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="text-base font-retro font-medium" style={{ color: social.color }}>
+                        <p className="text-base md:text-base font-retro font-medium" style={{ color: social.color }}>
                           {social.label}
                         </p>
-                        <p className="text-sm font-retro text-gray-400 dark:text-gray-500 truncate">
+                        <p className="text-sm md:text-sm font-retro text-gray-400 dark:text-gray-500 truncate">
                           {social.value}
                         </p>
                       </div>
@@ -236,9 +236,9 @@ export default function ContactSection() {
 
           {/* Contact Form */}
           <div className="lg:col-span-3">
-            <div className="bg-white/80 dark:bg-data-dark-800/40 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-6 shadow-sm dark:shadow-none">
-              <div className="flex items-center justify-between mb-5">
-                <span className="text-base font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+            <div className="bg-white/80 dark:bg-data-dark-800/40 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-5 md:p-6 shadow-sm dark:shadow-none">
+              <div className="flex items-center justify-between mb-5 md:mb-5 flex-wrap gap-2">
+                <span className="text-base md:text-base font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider">
                   Send Message
                 </span>
                 <span className="text-xs font-retro text-pipeline-cyan flex items-center gap-1.5">
@@ -247,12 +247,12 @@ export default function ContactSection() {
                 </span>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <form onSubmit={handleSubmit} className="space-y-5 md:space-y-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-5">
                   <div>
                     <label
                       htmlFor="firstName"
-                      className="block text-base font-retro text-gray-700 dark:text-gray-300 mb-1.5"
+                      className="block text-base md:text-base font-retro text-gray-700 dark:text-gray-300 mb-2"
                     >
                       First Name
                     </label>
@@ -261,7 +261,7 @@ export default function ContactSection() {
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-2.5 text-lg font-retro border border-gray-300 dark:border-pipeline-blue/20 rounded-lg bg-white dark:bg-data-dark-700/40 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-pipeline-cyan/50 focus:ring-1 focus:ring-pipeline-cyan/30 transition-all duration-300"
+                      className="w-full px-4 md:px-5 py-3 text-base sm:text-lg font-retro border border-gray-300 dark:border-pipeline-blue/20 rounded-lg bg-white dark:bg-data-dark-700/40 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-pipeline-cyan/50 focus:ring-1 focus:ring-pipeline-cyan/30 transition-all duration-300 min-h-[48px]"
                       placeholder="John"
                       required
                     />
@@ -269,7 +269,7 @@ export default function ContactSection() {
                   <div>
                     <label
                       htmlFor="lastName"
-                      className="block text-base font-retro text-gray-700 dark:text-gray-300 mb-1.5"
+                      className="block text-base md:text-base font-retro text-gray-700 dark:text-gray-300 mb-2"
                     >
                       Last Name
                     </label>
@@ -278,7 +278,7 @@ export default function ContactSection() {
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-2.5 text-lg font-retro border border-gray-300 dark:border-pipeline-blue/20 rounded-lg bg-white dark:bg-data-dark-700/40 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-pipeline-cyan/50 focus:ring-1 focus:ring-pipeline-cyan/30 transition-all duration-300"
+                      className="w-full px-4 md:px-5 py-3 text-base sm:text-lg font-retro border border-gray-300 dark:border-pipeline-blue/20 rounded-lg bg-white dark:bg-data-dark-700/40 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-pipeline-cyan/50 focus:ring-1 focus:ring-pipeline-cyan/30 transition-all duration-300 min-h-[48px]"
                       placeholder="Doe"
                       required
                     />
@@ -288,7 +288,7 @@ export default function ContactSection() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-base font-retro text-gray-700 dark:text-gray-300 mb-1.5"
+                    className="block text-base md:text-base font-retro text-gray-700 dark:text-gray-300 mb-2"
                   >
                     Email
                   </label>
@@ -298,7 +298,7 @@ export default function ContactSection() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2.5 text-lg font-retro border border-gray-300 dark:border-pipeline-blue/20 rounded-lg bg-white dark:bg-data-dark-700/40 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-pipeline-cyan/50 focus:ring-1 focus:ring-pipeline-cyan/30 transition-all duration-300"
+                    className="w-full px-4 md:px-5 py-3 text-base sm:text-lg font-retro border border-gray-300 dark:border-pipeline-blue/20 rounded-lg bg-white dark:bg-data-dark-700/40 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-pipeline-cyan/50 focus:ring-1 focus:ring-pipeline-cyan/30 transition-all duration-300 min-h-[48px]"
                     placeholder="john.doe@example.com"
                     required
                   />
@@ -307,7 +307,7 @@ export default function ContactSection() {
                 <div>
                   <label
                     htmlFor="subject"
-                    className="block text-base font-retro text-gray-700 dark:text-gray-300 mb-1.5"
+                    className="block text-base md:text-base font-retro text-gray-700 dark:text-gray-300 mb-2"
                   >
                     Subject
                   </label>
@@ -316,7 +316,7 @@ export default function ContactSection() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-2.5 text-lg font-retro border border-gray-300 dark:border-pipeline-blue/20 rounded-lg bg-white dark:bg-data-dark-700/40 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-pipeline-cyan/50 focus:ring-1 focus:ring-pipeline-cyan/30 transition-all duration-300"
+                    className="w-full px-4 md:px-5 py-3 text-base sm:text-lg font-retro border border-gray-300 dark:border-pipeline-blue/20 rounded-lg bg-white dark:bg-data-dark-700/40 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-pipeline-cyan/50 focus:ring-1 focus:ring-pipeline-cyan/30 transition-all duration-300 min-h-[48px]"
                     placeholder="Project Discussion"
                     required
                   />
@@ -325,7 +325,7 @@ export default function ContactSection() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-base font-retro text-gray-700 dark:text-gray-300 mb-1.5"
+                    className="block text-base md:text-base font-retro text-gray-700 dark:text-gray-300 mb-2"
                   >
                     Message
                   </label>
@@ -335,7 +335,7 @@ export default function ContactSection() {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={5}
-                    className="w-full px-4 py-2.5 text-lg font-retro border border-gray-300 dark:border-pipeline-blue/20 rounded-lg bg-white dark:bg-data-dark-700/40 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-pipeline-cyan/50 focus:ring-1 focus:ring-pipeline-cyan/30 resize-none transition-all duration-300"
+                    className="w-full px-4 md:px-5 py-3 text-base sm:text-lg font-retro border border-gray-300 dark:border-pipeline-blue/20 rounded-lg bg-white dark:bg-data-dark-700/40 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-pipeline-cyan/50 focus:ring-1 focus:ring-pipeline-cyan/30 resize-none transition-all duration-300"
                     placeholder="Tell me about your project..."
                     required
                   />
@@ -343,9 +343,9 @@ export default function ContactSection() {
 
                 <button
                   type="submit"
-                  className="w-full text-lg font-retro text-white dark:text-data-dark-950 bg-pipeline-cyan hover:bg-pipeline-cyan/90 px-6 py-3 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2"
+                  className="w-full text-base md:text-lg font-retro text-white dark:text-data-dark-950 bg-pipeline-cyan hover:bg-pipeline-cyan/90 px-6 py-3 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 min-h-[48px]"
                 >
-                  <Mail className="h-5 w-5" />
+                  <Mail className="h-5 w-5 md:h-5 md:w-5" />
                   Send Message
                 </button>
               </form>

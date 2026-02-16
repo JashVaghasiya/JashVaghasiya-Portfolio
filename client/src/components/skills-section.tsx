@@ -76,7 +76,7 @@ export default function SkillsSection() {
   ];
 
   return (
-    <section id="skills" className="py-24 bg-white dark:bg-data-dark-900">
+    <section id="skills" className="py-20 md:py-24 bg-white dark:bg-data-dark-900 overflow-x-hidden">
       {/* Blueprint grid background */}
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
         <div
@@ -88,22 +88,22 @@ export default function SkillsSection() {
         />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 relative">
+      <div className="max-w-6xl mx-auto px-5 md:px-6 relative">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-5xl font-bold font-pixel text-gray-900 dark:text-white mb-2">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-pixel text-gray-900 dark:text-white mb-3 leading-tight">
             Data Architecture & Technologies
           </h2>
-          <p className="text-xl font-retro text-gray-500 dark:text-gray-400 mb-12 max-w-2xl">
+          <p className="text-base sm:text-lg md:text-xl font-retro text-gray-500 dark:text-gray-400 mb-10 md:mb-12 max-w-2xl leading-relaxed">
             Comprehensive expertise across the modern data engineering stack, organized by architectural layer.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
           {/* Main architecture diagram - takes 2 columns */}
           <div className="lg:col-span-2">
             <motion.div
@@ -111,10 +111,10 @@ export default function SkillsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-gray-50/80 dark:bg-data-dark-800/30 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-6 h-full shadow-sm dark:shadow-none"
+              className="bg-gray-50/80 dark:bg-data-dark-800/30 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-5 md:p-6 h-full shadow-sm dark:shadow-none"
             >
-              <div className="flex items-center justify-between mb-5 flex-wrap gap-2">
-                <span className="text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+              <div className="flex items-center justify-between mb-5 md:mb-5 flex-wrap gap-2">
+                <span className="text-sm md:text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider">
                   Data Stack Architecture
                 </span>
                 <span className="text-xs font-retro text-pipeline-cyan whitespace-nowrap">
@@ -127,16 +127,16 @@ export default function SkillsSection() {
           </div>
 
           {/* Side panel: Data Flow Diagram */}
-          <div className="space-y-6">
+          <div className="space-y-5 md:space-y-6">
             {/* Vertical data flow */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-gray-50/80 dark:bg-data-dark-800/30 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-5 h-fit shadow-sm dark:shadow-none"
+              className="bg-gray-50/80 dark:bg-data-dark-800/30 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-5 md:p-5 h-fit shadow-sm dark:shadow-none"
             >
-              <span className="text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider block mb-4">
+              <span className="text-sm md:text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider block mb-4 md:mb-4">
                 Data Flow Path
               </span>
               <div className="space-y-0">
@@ -144,7 +144,7 @@ export default function SkillsSection() {
                   <div key={index}>
                     <div className="flex items-center gap-3">
                       <div
-                        className="w-8 h-8 rounded-lg flex items-center justify-center text-[10px] font-mono font-bold flex-shrink-0 border"
+                        className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-mono font-bold flex-shrink-0 border"
                         style={{
                           backgroundColor: step.color + "15",
                           borderColor: step.color + "30",
@@ -161,7 +161,7 @@ export default function SkillsSection() {
                       </div>
                     </div>
                     {index < dataFlowSteps.length - 1 && (
-                      <div className="flex justify-center my-1" style={{ marginLeft: "16px" }}>
+                      <div className="flex my-1 ml-2">
                         <FlowConnector
                           color={step.color}
                           width={24}
@@ -182,16 +182,16 @@ export default function SkillsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-gray-50/80 dark:bg-data-dark-800/30 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-5 h-fit shadow-sm dark:shadow-none"
+              className="bg-gray-50/80 dark:bg-data-dark-800/30 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-5 md:p-5 h-fit shadow-sm dark:shadow-none"
             >
-              <span className="text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider block mb-3">
+              <span className="text-sm md:text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider block mb-3">
                 DevOps & Governance
               </span>
-              <div className="flex flex-wrap gap-1.5">
+              <div className="flex flex-wrap gap-2">
                 {devopsTools.map((tool) => (
                   <span
                     key={tool.name}
-                    className="text-sm font-retro px-2 py-1 rounded border whitespace-nowrap"
+                    className="text-sm md:text-sm font-retro px-2.5 py-1.5 rounded border whitespace-nowrap"
                     style={{
                       color: tool.color,
                       borderColor: tool.color + "25",
@@ -212,18 +212,18 @@ export default function SkillsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-8 bg-gray-50/80 dark:bg-data-dark-800/30 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-6 shadow-sm dark:shadow-none"
+          className="mt-8 md:mt-8 bg-gray-50/80 dark:bg-data-dark-800/30 backdrop-blur-xl border border-gray-200 dark:border-pipeline-blue/15 rounded-xl p-5 md:p-6 shadow-sm dark:shadow-none"
         >
-          <span className="text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider block mb-5">
+          <span className="text-sm md:text-sm font-retro text-gray-400 dark:text-gray-500 uppercase tracking-wider block mb-5 md:mb-5">
             Programming Languages & Proficiency
           </span>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-8 gap-y-4 md:gap-y-4">
             {coreSkills.map((skill, index) => (
-              <div key={skill.name} className="flex items-center gap-3 min-w-0">
-                <span className="text-lg font-retro text-gray-500 dark:text-gray-400 w-32 flex-shrink-0 truncate" title={skill.name}>
+              <div key={skill.name} className="flex items-center gap-3 md:gap-3 min-w-0">
+                <span className="text-base md:text-lg font-retro text-gray-500 dark:text-gray-400 w-32 md:w-32 flex-shrink-0 truncate" title={skill.name}>
                   {skill.name}
                 </span>
-                <div className="flex-1 h-2 bg-gray-200 dark:bg-data-dark-700 rounded-full overflow-hidden min-w-0">
+                <div className="flex-1 h-2.5 bg-gray-200 dark:bg-data-dark-700 rounded-full overflow-hidden min-w-0">
                   <motion.div
                     className="h-full rounded-full"
                     style={{ backgroundColor: skill.color }}
@@ -233,7 +233,7 @@ export default function SkillsSection() {
                     transition={{ duration: 1, delay: index * 0.1 }}
                   />
                 </div>
-                <span className="text-base font-retro text-gray-400 dark:text-gray-500 w-9 text-right flex-shrink-0">
+                <span className="text-base md:text-base font-retro text-gray-400 dark:text-gray-500 w-10 md:w-10 text-right flex-shrink-0">
                   {skill.proficiency}%
                 </span>
               </div>
